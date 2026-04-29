@@ -1,0 +1,15 @@
+*__pycahce__*
+*.pycinput_videos/ 
+output_videos/ 
+models/ 
+venv39/ 
+venv39_new/ 
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# (Optional) Ignore stub files if not needed
+stubs/
