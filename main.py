@@ -44,25 +44,6 @@ def main():
     # Assign Player Teams
     team_assigner = TeamAssigner()
 
-    # StrongSort has warm-up period so frame 0 may be empty — find first valid frame
-    first_frame_with_players = next(
-        (i for i, p in enumerate(tracks['players']) if len(p) > 0), 0
-    )
-    team_assigner.assign_team_color(
-        video_frames[first_frame_with_players],
-        tracks['players'][first_frame_with_players]
-    )
-
-    # Auto-detect which cluster is lighter and assign distinct colors
-    c1 = team_assigner.team_colors[1]
-    c2 = team_assigner.team_colors[2]
-    if np.mean(c1) > np.mean(c2):
-        team_assigner.team_colors[1] = (255, 255, 255)  # white
-        team_assigner.team_colors[2] = (0, 255, 0)      # green
-    else:
-        team_assigner.team_colors[1] = (0, 255, 0)      # green
-        team_assigner.team_colors[2] = (255, 255, 255)  # white
-
     for frame_num, player_track in enumerate(tracks['players']):
         for player_id, track in player_track.items():
             team = team_assigner.get_player_team(video_frames[frame_num],

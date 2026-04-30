@@ -120,25 +120,13 @@ class Tracker:
             misclassified = []
             for track_id, track_info in tracks['players'][frame_num].items():
                 bbox = track_info['bbox']
-                x_center = (bbox[0] + bbox[2]) / 2
                 y_center = (bbox[1] + bbox[3]) / 2
-                # If near top or bottom edge (sideline area), likely a referee
-                if y_center < frame_h * 0.12 or y_center > frame_h * 0.88:
+                # If near top or bottom edge (sideline area), likely a referee/linesman
+                if y_center < frame_h * 0.1 or y_center > frame_h * 0.9:
                     misclassified.append(track_id)
             
             for track_id in misclassified:
                 tracks['referees'][frame_num][track_id] = tracks['players'][frame_num].pop(track_id)
-            
-            # Move "referees" on the pitch to players
-            misclassified_refs = []
-            for track_id, track_info in tracks['referees'][frame_num].items():
-                bbox = track_info['bbox']
-                y_center = (bbox[1] + bbox[3]) / 2
-                if frame_h * 0.15 < y_center < frame_h * 0.85:
-                    misclassified_refs.append(track_id)
-            
-            for track_id in misclassified_refs:
-                tracks['players'][frame_num][track_id] = tracks['referees'][frame_num].pop(track_id)
         if stub_path is not None:
             with open(stub_path,'wb') as f:
                 pickle.dump(tracks,f)
