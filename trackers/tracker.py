@@ -11,12 +11,16 @@ from utils import get_center_of_bbox, get_bbox_width, get_foot_position
 from pathlib import Path
 from boxmot.trackers.strongsort.strongsort import StrongSort
 
+import torch
+
 class Tracker:
     def __init__(self, model_path):
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.model = YOLO(model_path) 
+        self.model.to(self.device)
         self.tracker = StrongSort(
             reid_weights=Path("osnet_x0_25_msmt17.pt"),
-            device="cpu",
+            device=self.device,
             half=False,
         )
                 
