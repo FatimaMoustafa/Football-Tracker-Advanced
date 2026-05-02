@@ -15,9 +15,8 @@ import torch
 
 class Tracker:
     def __init__(self, model_path):
-        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.device = '0' if torch.cuda.is_available() else 'cpu'
         self.model = YOLO(model_path) 
-        self.model.to(self.device)
         self.tracker = StrongSort(
             reid_weights=Path("osnet_x0_25_msmt17.pt"),
             device=self.device,
