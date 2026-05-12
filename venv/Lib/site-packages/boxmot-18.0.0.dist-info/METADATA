@@ -1,0 +1,188 @@
+Metadata-Version: 2.4
+Name: boxmot
+Version: 18.0.0
+Summary: BoxMOT: pluggable SOTA tracking modules for segmentation, object detection and pose estimation models
+Author: Mikel Broström
+License: AGPL-3.0
+License-File: LICENSE
+Keywords: AI,DL,ML,YOLO,deep-learning,machine-learning,tracking,tracking-by-detection,vision
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Software Development
+Requires-Python: <3.13,>=3.9
+Requires-Dist: click>=8.1.8
+Requires-Dist: filterpy<2.0.0,>=1.4.5
+Requires-Dist: ftfy<7.0.0,>=6.1.3
+Requires-Dist: gdown<6.0.0,>=5.1.0
+Requires-Dist: huggingface-hub>=1.7.1
+Requires-Dist: lapx<1.0.0,>=0.5.5
+Requires-Dist: loguru<1.0.0,>=0.7.2
+Requires-Dist: numpy
+Requires-Dist: opencv-python<5.0.0,>=4.7.0
+Requires-Dist: pandas<3.0.0,>=2.0.0
+Requires-Dist: regex<2025.0.0,>=2024.0.0
+Requires-Dist: scikit-learn<2.0.0,>=1.3.0
+Requires-Dist: torch<3.0.0,>=2.2.1
+Requires-Dist: torchvision<1.0.0,>=0.17.1
+Requires-Dist: yacs<1.0.0,>=0.1.8
+Provides-Extra: evolve
+Requires-Dist: bayesian-optimization==2.0.4; extra == 'evolve'
+Requires-Dist: optuna==3.5.0; extra == 'evolve'
+Requires-Dist: plotly==5.19.0; extra == 'evolve'
+Requires-Dist: pydantic<3.0.0,>=2.12.5; extra == 'evolve'
+Requires-Dist: ray[tune]==2.49.2; extra == 'evolve'
+Provides-Extra: onnx
+Requires-Dist: onnx==1.17.0; (python_version < '3.10') and extra == 'onnx'
+Requires-Dist: onnx==1.20.1; (python_version >= '3.10') and extra == 'onnx'
+Requires-Dist: onnxruntime==1.18.1; (python_version < '3.10') and extra == 'onnx'
+Requires-Dist: onnxruntime==1.24.3; (python_version >= '3.10') and extra == 'onnx'
+Requires-Dist: onnxscript>=0.1.0; extra == 'onnx'
+Requires-Dist: onnxslim>=0.1.67; extra == 'onnx'
+Provides-Extra: openvino
+Requires-Dist: openvino>=2025.2.0; extra == 'openvino'
+Provides-Extra: research
+Requires-Dist: gepa[full]>=0.1.1; (python_version >= '3.10') and extra == 'research'
+Provides-Extra: tflite
+Requires-Dist: ai-edge-litert==2.1.2; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: flatbuffers==25.12.19; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: h5py==3.12.1; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: ml-dtypes==0.5.1; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: onnx2tf<3.0.0,>=2.3.3; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: onnx==1.20.1; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: onnxoptimizer==0.4.2; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: onnxruntime==1.24.3; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: onnxsim-prebuilt==0.4.39.post2; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: onnxslim>=0.1.31; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: psutil==5.9.5; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: sne4onnx>=2.0.1; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: sng4onnx>=2.0.1; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: tensorflow==2.19.0; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Requires-Dist: tf-keras==2.19.0; (python_version >= '3.12' and python_version < '3.13' and (sys_platform == 'linux' or sys_platform == 'win32')) and extra == 'tflite'
+Provides-Extra: yolo
+Requires-Dist: ultralytics>=3.8.200; extra == 'yolo'
+Requires-Dist: yolox==0.3.0; extra == 'yolo'
+Description-Content-Type: text/markdown
+
+<div align="center" markdown="1">
+
+  <img width="640"
+       src="https://github.com/mikel-brostrom/boxmot/releases/download/v12.0.0/output_640.gif"
+       alt="BoxMOT demo">
+  <br>
+
+  <a href="https://trendshift.io/repositories/13239" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13239" alt="mikel-brostrom%2Fboxmot | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"></a>
+
+  [![CI](https://github.com/mikel-brostrom/boxmot/actions/workflows/ci.yml/badge.svg)](https://github.com/mikel-brostrom/boxmot/actions/workflows/ci.yml)
+  [![PyPI version](https://badge.fury.io/py/boxmot.svg)](https://badge.fury.io/py/boxmot)
+  [![downloads](https://static.pepy.tech/badge/boxmot)](https://pepy.tech/project/boxmot)
+  [![license](https://img.shields.io/badge/license-AGPL%203.0-blue)](https://github.com/mikel-brostrom/boxmot/blob/master/LICENSE)
+  [![python-version](https://img.shields.io/pypi/pyversions/boxmot)](https://badge.fury.io/py/boxmot)
+  [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/18nIqkBr68TkK8dHdarxTco6svHUJGggY?usp=sharing)
+  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8132989.svg)](https://doi.org/10.5281/zenodo.8132989)
+  [![docker pulls](https://img.shields.io/docker/pulls/boxmot/boxmot?logo=docker)](https://hub.docker.com/r/boxmot/boxmot)
+  [![discord](https://img.shields.io/discord/1377565354326495283?logo=discord&label=discord&labelColor=fff&color=5865f2)](https://discord.gg/tUmFEcYU4q)
+  [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mikel-brostrom/boxmot)
+
+</div>
+
+BoxMOT gives you one CLI and one Python API for running modern multi-object tracking workflows. It covers direct tracking, cached benchmark evaluation, tuning, research loops, and ReID export without forcing you to rebuild the detector and tracker stack for each experiment.
+
+<div align="center" markdown="1">
+
+[Docs](docs/index.md) • [Installation](docs/getting-started/installation.md) • [Modes](docs/modes/index.md) • [API Reference](docs/python/index.md) • [Trackers](docs/trackers/index.md) • [Contributing](CONTRIBUTING.md)
+
+</div>
+
+## Why BoxMOT
+
+- One interface for `track`, `generate`, `eval`, `tune`, `research`, and `export`.
+- Swappable trackers with shared detector and ReID plumbing.
+- Benchmark-oriented workflows with reusable detections and embeddings.
+- Support for both AABB and OBB tracking paths.
+- Public Python API for embedding the same workflows in applications and notebooks.
+
+## Installation
+
+BoxMOT supports Python `3.9` through `3.12`.
+
+```bash
+pip install boxmot
+boxmot --help
+```
+
+For mode-specific extras such as `yolo`, `evolve`, `research`, `onnx`, `openvino`, and `tflite`, see the [installation guide](docs/getting-started/installation.md).
+
+## Benchmark Results (MOT17 ablation split)
+
+<div align="center" markdown="1">
+
+<!-- START TRACKER TABLE -->
+| Tracker | Status  | OBB | HOTA↑ | MOTA↑ | IDF1↑ | FPS |
+| :-----: | :-----: | :-: | :---: | :---: | :---: | :---: |
+| [botsort](https://arxiv.org/abs/2206.14651) | ✅ | ✅ | 69.418 | 78.232 | 81.812 | 12 |
+| [boosttrack](https://arxiv.org/abs/2408.13003) | ✅ | ❌ | 69.253 | 75.914 | 83.206 | 13 |
+| [strongsort](https://arxiv.org/abs/2202.13514) | ✅ | ❌ | 68.05 | 76.185 | 80.763 | 11 |
+| [deepocsort](https://arxiv.org/abs/2302.11813) | ✅ | ❌ | 67.796 | 75.868 | 80.514 | 12 |
+| [bytetrack](https://arxiv.org/abs/2110.06864) | ✅ | ✅ | 67.68 | 78.039 | 79.157 | 720 |
+| [hybridsort](https://arxiv.org/abs/2308.00783) | ✅ | ❌ | 67.39 | 74.127 | 79.105 | 25 |
+| [ocsort](https://arxiv.org/abs/2203.14360) | ✅ | ✅ | 66.441 | 74.548 | 77.899 | 890 |
+| [sfsort](https://arxiv.org/pdf/2404.07553) | ✅ | ✅ | 62.653 | 76.87 | 69.184 | 6000 |
+<!-- END TRACKER TABLE -->
+
+<sub>Evaluation was run on the second half of the MOT17 training set because the validation split is not public and the ablation detector was trained on the first half. Results used [pre-generated detections and embeddings](https://github.com/mikel-brostrom/boxmot/releases/download/v11.0.9/runs2.zip) with each tracker configured from its default repository settings.</sub>
+
+</div>
+
+Reproduction details and evaluation semantics live in:
+
+- [Evaluation and Postprocessing](docs/guides/evaluation.md)
+- [Benchmark Workflows](docs/guides/benchmarks.md)
+
+## Minimal Usage
+
+CLI:
+
+```bash
+boxmot track --detector yolov8n --reid osnet_x0_25_msmt17 --tracker botsort --source video.mp4 --save
+```
+
+Python:
+
+```python
+from boxmot import Boxmot
+
+run = Boxmot(detector="yolov8n", reid="osnet_x0_25_msmt17", tracker="botsort").track(
+    source="video.mp4",
+    save=True,
+)
+print(run)
+```
+
+## Contributing
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md) and the [contributor docs](docs/contributing/index.md).
+
+## Contributors
+
+<a href="https://github.com/mikel-brostrom/boxmot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mikel-brostrom/boxmot" alt="BoxMOT contributors">
+</a>
+
+## Support and Citation
+
+- Bugs and feature requests: [GitHub Issues](https://github.com/mikel-brostrom/boxmot/issues)
+- Questions and discussion: [GitHub Discussions](https://github.com/mikel-brostrom/boxmot/discussions) or [Discord](https://discord.gg/tUmFEcYU4q)
+- Citation metadata: [CITATION.cff](https://github.com/mikel-brostrom/boxmot/blob/master/CITATION.cff)
+- Commercial support: `box-mot@outlook.com`

@@ -1,0 +1,2 @@
+[console_scripts]
+boxmot = boxmot.engine.cli:main

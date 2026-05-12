@@ -1,0 +1,35 @@
+{
+  "video_processing": {
+    "chunk_duration_seconds": 60,
+    "fps": 24,
+    "codec": "libx264",
+    "quality": "high"
+  },
+  "model": {
+    "path": "models/best.pt",
+    "type": "YOLOv8",
+    "device": "cuda"
+  },
+  "homography": {
+    "court_width_m": 68,
+    "court_length_m": 23.32,
+    "matrix_file": "config/homography_matrix.json"
+  },
+  "evaluation": {
+    "fps": 24,
+    "id_switch_distance_threshold_px": 50,
+    "speed_plausibility_threshold_px_per_frame": 200,
+    "min_track_length_frames": 5,
+    "report_formats": ["json", "txt", "html"]
+  },
+  "output_directories": {
+    "videos": "output_videos",
+    "stats": "output_videos/stats",
+    "evaluation": "evaluation_results",
+    "config": "config"
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
+}
