@@ -3,15 +3,19 @@ Evaluation Harness Script - Run tracking evaluation on test clips
 Measures: ID switches, fragmentation, speed plausibility
 """
 
+import glob
 import os
 import json
+import pickle
 import argparse
 import cv2
 from pathlib import Path
 import logging
 import traceback
 
-from evaluation.eval_harness import TrackingEvaluator, evaluate_test_clip
+from run_chunked_pipeline import ChunkedPipeline
+from evaluation.eval_harness import TrackingEvaluator
+from evaluation.chunk_boundary_validator import validate_chunk_boundary_continuity
 from utils import read_video
 from trackers import Tracker
 from team_assigner import TeamAssigner
@@ -30,9 +34,10 @@ logger = logging.getLogger(__name__)
 class EvaluationHarness:
     """Complete evaluation toolkit for tracking quality assessment"""
     
-    def __init__(self, model_path: str = 'models/best.pt'):
+    def __init__(self, model_path: str = 'models/best.pt', chunk_duration: int = 30):
         """Initialize evaluation harness"""
         self.model_path = model_path
+        self.chunk_duration = chunk_duration
         self.tracker = Tracker(model_path)
         self.team_assigner = TeamAssigner()
         self.player_assigner = PlayerBallAssigner()
@@ -118,13 +123,36 @@ class EvaluationHarness:
         
         return tracks
     
-    def evaluate_video(self, video_path: str, output_dir: str = 'evaluation_results') -> dict:
+    def run_chunked_pipeline(self, video_path: str, output_dir: str, chunk_duration: int = None) -> dict:
+        """Run chunked tracking pipeline and return merged tracks."""
+        pipeline_output_dir = os.path.join(output_dir, 'chunked_processing')
+        pipeline = ChunkedPipeline(
+            model_path=self.model_path,
+            chunk_duration=chunk_duration or self.chunk_duration
+        )
+        result = pipeline.process_video_chunked(
+            video_path=video_path,
+            output_dir=pipeline_output_dir,
+            use_stub=False,
+            cleanup_temp_files=False,
+            return_merged_tracks=True
+        )
+        tracks = result.get('tracks', {})
+        if not tracks:
+            raise RuntimeError('Chunked processing did not produce merged tracks.')
+        return tracks
+
+    def evaluate_video(self, video_path: str, output_dir: str = 'evaluation_results', use_chunked: bool = True, chunk_duration: int = None, existing_processing_dir: str = None, existing_tracks: dict = None) -> dict:
         """
         Complete evaluation pipeline
         
         Args:
             video_path: Path to test video
             output_dir: Directory to save evaluation results
+            use_chunked: Whether to run evaluation using chunked processing
+            chunk_duration: Duration of each chunk for streaming evaluation
+            existing_processing_dir: Reuse previously processed chunked data from this directory
+            existing_tracks: Use already merged tracks directly without rerunning processing
             
         Returns:
             Dictionary with evaluation metrics
@@ -138,12 +166,36 @@ class EvaluationHarness:
         try:
             # Step 1: Run tracking pipeline
             logger.info("\n[STEP 1] Running tracking pipeline...")
-            tracks = self.run_full_pipeline(video_path)
+            if use_chunked:
+                if existing_tracks is not None:
+                    logger.info("Reusing merged tracks from prior processing for evaluation.")
+                    tracks = existing_tracks
+                elif existing_processing_dir is not None:
+                    logger.info("Loading merged tracks from existing processing directory for evaluation.")
+                    tracks = self._load_tracks_from_processing_dir(existing_processing_dir)
+                else:
+                    tracks = self.run_chunked_pipeline(
+                        video_path=video_path,
+                        output_dir=output_dir,
+                        chunk_duration=chunk_duration
+                    )
+            else:
+                tracks = self.run_full_pipeline(video_path)
             
             # Step 2: Evaluate tracks
             logger.info("\n[STEP 2] Evaluating tracking quality...")
             self.evaluator = TrackingEvaluator(fps=24)
             metrics = self.evaluator.evaluate_tracks(tracks)
+            
+            # Step 2b: Validate chunk boundary continuity (if using chunked processing)
+            boundary_validation = None
+            if use_chunked:
+                logger.info("\n[STEP 2b] Validating chunk boundary ID continuity...")
+                boundary_validation = validate_chunk_boundary_continuity(
+                    tracks,
+                    output_json=os.path.join(output_dir, 'boundary_continuity_metrics.json')
+                )
+                metrics['boundary_continuity'] = boundary_validation
             
             # Step 3: Generate report
             logger.info("\n[STEP 3] Generating evaluation report...")
@@ -158,13 +210,13 @@ class EvaluationHarness:
             
             # Save report text
             report_path = os.path.join(output_dir, 'evaluation_report.txt')
-            with open(report_path, 'w') as f:
+            with open(report_path, 'w', encoding='utf-8') as f:
                 f.write(report)
             
             # Save HTML report
             html_report = self._generate_html_report(metrics)
             html_path = os.path.join(output_dir, 'evaluation_report.html')
-            with open(html_path, 'w') as f:
+            with open(html_path, 'w', encoding='utf-8') as f:
                 f.write(html_report)
             
             logger.info("\n" + "=" * 70)
@@ -189,8 +241,38 @@ class EvaluationHarness:
         fragmentation = metrics['fragmentation']
         speed = metrics['speed_plausibility']
         consistency = metrics['track_consistency']
+        boundary_validation = metrics.get('boundary_continuity', {})
         
         rating = self.evaluator._calculate_overall_rating()
+        
+        # Build boundary continuity section if available
+        boundary_section = ""
+        if boundary_validation:
+            continuity_score = boundary_validation.get('continuity_score', 0)
+            num_boundaries = boundary_validation.get('num_boundaries', 0)
+            boundary_section = f"""
+            <h2> Chunk Boundary Continuity</h2>
+            <div>
+                <div class="metric">
+                    <div class="metric-label">Continuity Score</div>
+                    <div class="metric-value {'' if continuity_score >= 0.65 else 'warning'}">
+                        {continuity_score:.3f}
+                    </div>
+                    <small>(0=poor, 1=perfect)</small>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Boundaries Detected</div>
+                    <div class="metric-value">{num_boundaries}</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">ID Retention Rate</div>
+                    <div class="metric-value">{boundary_validation.get('id_retention_rate', 0):.3f}</div>
+                </div>
+            </div>
+            <p style="margin-left: 10px; font-style: italic; color: #666;">
+                {boundary_validation.get('recommendation', 'No recommendation')}
+            </p>
+            """
         
         html = f"""
         <html>
@@ -309,6 +391,8 @@ class EvaluationHarness:
                 </div>
             </div>
             
+            {boundary_section}
+            
             <h2>📈 Component Scores</h2>
             <table>
                 <tr>
@@ -347,6 +431,22 @@ class EvaluationHarness:
         """
         
         return html
+    
+    def _load_tracks_from_processing_dir(self, processing_dir: str) -> dict:
+        """Load merged tracks from a previously completed chunked processing output."""
+        merged_tracks_path = os.path.join(processing_dir, 'merged_tracks.pkl')
+        if not os.path.exists(merged_tracks_path):
+            raise FileNotFoundError(
+                f"Merged track data not found in processing directory: {merged_tracks_path}"
+            )
+
+        with open(merged_tracks_path, 'rb') as f:
+            tracks = pickle.load(f)
+
+        if not tracks:
+            raise ValueError("Loaded merged tracks file is empty.")
+
+        return tracks
 
 
 def main():
@@ -354,11 +454,18 @@ def main():
     parser.add_argument('--input', '-i', required=True, help='Input video path')
     parser.add_argument('--output', '-o', default='evaluation_results', help='Output directory')
     parser.add_argument('--model', default='models/best.pt', help='Model path')
+    parser.add_argument('--chunk-duration', type=int, default=30, help='Chunk duration in seconds for evaluation')
+    parser.add_argument('--no-chunked', action='store_true', help='Disable chunked evaluation and use full video processing')
     
     args = parser.parse_args()
     
-    harness = EvaluationHarness(model_path=args.model)
-    metrics = harness.evaluate_video(args.input, output_dir=args.output)
+    harness = EvaluationHarness(model_path=args.model, chunk_duration=args.chunk_duration)
+    metrics = harness.evaluate_video(
+        args.input,
+        output_dir=args.output,
+        use_chunked=not args.no_chunked,
+        chunk_duration=args.chunk_duration
+    )
     
     print("\n" + "=" * 70)
     print("EVALUATION SUMMARY")

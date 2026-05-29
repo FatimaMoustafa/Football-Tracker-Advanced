@@ -7,6 +7,7 @@ import subprocess
 import os
 import json
 import shutil
+import math
 from pathlib import Path
 from typing import List, Dict, Tuple
 import logging
@@ -68,7 +69,9 @@ class VideoChunker:
         duration = self._get_video_duration(input_path)
         logger.info(f"Video duration: {duration:.2f}s")
         
-        num_chunks = (int(duration) // self.chunk_duration) + 1
+        num_chunks = math.ceil(duration / self.chunk_duration)
+        if num_chunks <= 0:
+            num_chunks = 1
         logger.info(f"Splitting into {num_chunks} chunks of {self.chunk_duration}s")
         
         chunk_paths = []

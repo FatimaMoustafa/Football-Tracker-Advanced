@@ -21,6 +21,20 @@ class Tracker:
             reid_weights=Path("osnet_x0_25_msmt17.pt"),
             device=self.device,
             half=False,
+            det_thresh=0.35,
+            max_age=60,
+            max_obs=100,
+            min_hits=2,
+            iou_threshold=0.35,
+            per_class=False,
+            asso_func='giou',
+            min_conf=0.25,
+            max_cos_dist=0.18,
+            max_iou_dist=0.5,
+            n_init=5,
+            nn_budget=200,
+            mc_lambda=0.95,
+            ema_alpha=0.85,
         )
                 
     def add_position_to_tracks(self,tracks):
@@ -34,23 +48,48 @@ class Tracker:
                         position = get_foot_position(bbox)
                     tracks[object][frame_num][track_id]['position'] = position
 
-    def interpolate_ball_positions(self,ball_positions):
-        ball_positions = [x.get(1,{}).get('bbox',[]) for x in ball_positions]
-        df_ball_positions = pd.DataFrame(ball_positions,columns=['x1','y1','x2','y2'])
+    def interpolate_ball_positions(self, ball_positions):
+        if not ball_positions:
+            return ball_positions
 
-        # Interpolate missing values
-        df_ball_positions = df_ball_positions.interpolate()
-        df_ball_positions = df_ball_positions.bfill()
+        normalized_positions = []
+        for frame_ball in ball_positions:
+            bbox = frame_ball.get(1, {}).get('bbox')
+            if isinstance(bbox, (list, tuple)) and len(bbox) == 4:
+                normalized_positions.append(bbox)
+            else:
+                normalized_positions.append([np.nan, np.nan, np.nan, np.nan])
 
-        ball_positions = [{1: {"bbox":x}} for x in df_ball_positions.to_numpy().tolist()]
+        df_ball_positions = pd.DataFrame(
+            normalized_positions,
+            columns=['x1', 'y1', 'x2', 'y2']
+        )
 
-        return ball_positions
+        if df_ball_positions.dropna(how='all').empty:
+            return [{} for _ in ball_positions]
+
+        df_ball_positions = df_ball_positions.interpolate(limit_direction='both')
+        df_ball_positions = df_ball_positions.bfill().ffill()
+
+        interpolated_positions = []
+        for row in df_ball_positions.to_numpy().tolist():
+            if not np.isfinite(row).all():
+                interpolated_positions.append({})
+            else:
+                interpolated_positions.append({1: {'bbox': [float(row[0]), float(row[1]), float(row[2]), float(row[3])]}})
+
+        return interpolated_positions
 
     def detect_frames(self, frames):
-        batch_size=20 
-        detections = [] 
-        for i in range(0,len(frames),batch_size):
-            detections_batch = self.model.predict(frames[i:i+batch_size], conf=0.5, iou=0.5)
+        batch_size = 20
+        detections = []
+        for i in range(0, len(frames), batch_size):
+            detections_batch = self.model.predict(
+                frames[i:i + batch_size],
+                conf=0.5,
+                iou=0.35,
+                half=False
+            )
             detections += detections_batch
         return detections
 

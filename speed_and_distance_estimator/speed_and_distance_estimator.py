@@ -8,44 +8,54 @@ class SpeedAndDistance_Estimator():
         self.frame_window=5
         self.frame_rate=24
     
-    def add_speed_and_distance_to_tracks(self,tracks):
-        total_distance= {}
+    def add_speed_and_distance_to_tracks(self, tracks):
+        total_distance = {}
+        last_positions = {}
+        last_valid_speed = {}
 
         for object, object_tracks in tracks.items():
             if object == "ball" or object == "referees":
-                continue 
-            number_of_frames = len(object_tracks)
-            for frame_num in range(0,number_of_frames, self.frame_window):
-                last_frame = min(frame_num+self.frame_window,number_of_frames-1 )
+                continue
 
-                for track_id,_ in object_tracks[frame_num].items():
-                    if track_id not in object_tracks[last_frame]:
+            total_distance[object] = {}
+            last_positions[object] = {}
+            last_valid_speed[object] = {}
+
+            for frame_num, frame_tracks in enumerate(object_tracks):
+                for track_id, track_info in frame_tracks.items():
+                    position = track_info.get('position_transformed')
+                    if position is None:
+                        position = track_info.get('position_adjusted')
+                    if position is None:
+                        position = track_info.get('position')
+
+                    if position is None:
                         continue
 
-                    start_position = object_tracks[frame_num][track_id]['position_transformed']
-                    end_position = object_tracks[last_frame][track_id]['position_transformed']
+                    if track_id in last_positions[object] and last_positions[object][track_id] is not None:
+                        prev_position = last_positions[object][track_id]
+                        distance_covered = measure_distance(prev_position, position)
+                        time_elapsed = 1.0 / self.frame_rate
+                        speed_mps = distance_covered / max(time_elapsed, 1e-6)
+                        speed_kmh = speed_mps * 3.6
 
-                    if start_position is None or end_position is None:
-                        continue
-                    
-                    distance_covered = measure_distance(start_position,end_position)
-                    time_elapsed = (last_frame-frame_num)/self.frame_rate
-                    speed_meteres_per_second = distance_covered/time_elapsed
-                    speed_km_per_hour = speed_meteres_per_second*3.6
+                        # Ignore clearly invalid jumps due to detection noise or ID switches
+                        if speed_kmh > 45 or distance_covered > 300:
+                            speed_kmh = last_valid_speed[object].get(track_id, 0.0)
+                            distance_covered = 0.0
+                        else:
+                            total_distance[object].setdefault(track_id, 0.0)
+                            total_distance[object][track_id] += distance_covered
+                            last_valid_speed[object][track_id] = speed_kmh
 
-                    if object not in total_distance:
-                        total_distance[object]= {}
-                    
-                    if track_id not in total_distance[object]:
-                        total_distance[object][track_id] = 0
-                    
-                    total_distance[object][track_id] += distance_covered
+                        track_info['speed'] = speed_kmh
+                        track_info['distance'] = total_distance[object].get(track_id, 0.0)
+                    else:
+                        total_distance[object].setdefault(track_id, 0.0)
+                        track_info['speed'] = 0.0
+                        track_info['distance'] = total_distance[object].get(track_id, 0.0)
 
-                    for frame_num_batch in range(frame_num,last_frame):
-                        if track_id not in tracks[object][frame_num_batch]:
-                            continue
-                        tracks[object][frame_num_batch][track_id]['speed'] = speed_km_per_hour
-                        tracks[object][frame_num_batch][track_id]['distance'] = total_distance[object][track_id]
+                    last_positions[object][track_id] = position
     
     def draw_speed_and_distance(self,frames,tracks):
         output_frames = []

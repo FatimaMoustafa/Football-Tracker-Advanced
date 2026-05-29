@@ -26,6 +26,11 @@ class CompleteTrackingWorkflow:
     """Complete workflow combining all tools"""
     
     def __init__(self, model_path: str = 'models/best.pt'):
+        # Convert relative paths to absolute based on script location
+        if not os.path.isabs(model_path):
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            model_path = os.path.join(script_dir, model_path)
+        
         self.model_path = model_path
         self.pipeline = ChunkedPipeline(model_path=model_path)
         self.evaluator = EvaluationHarness(model_path=model_path)
@@ -57,7 +62,8 @@ class CompleteTrackingWorkflow:
         results = {}
         
         # Step 1: Homography (optional)
-        if setup_homography or not homography_file:
+        homography_file = os.path.join(output_dir, 'homography_matrix.json')
+        if setup_homography and not os.path.exists(homography_file):
             self.print_banner("STEP 1: HOMOGRAPHY CALIBRATION")
             
             logger.info("Extracting first frame from video...")
@@ -68,8 +74,6 @@ class CompleteTrackingWorkflow:
             if ret:
                 frame_path = os.path.join(output_dir, 'reference_frame.jpg')
                 cv2.imwrite(frame_path, frame)
-                
-                homography_file = os.path.join(output_dir, 'homography_matrix.json')
                 
                 logger.info(f"\nInteractive homography picker will now open...")
                 logger.info(f"Click 4 pitch corners in order: Top-Left → Top-Right → Bottom-Right → Bottom-Left")
@@ -92,6 +96,15 @@ class CompleteTrackingWorkflow:
                 else:
                     logger.warning("Homography setup skipped")
                     results['homography'] = {'status': 'skipped'}
+            else:
+                logger.error("Could not extract frame from video")
+                results['homography'] = {'status': 'failed'}
+        else:
+            logger.info("✓ Using existing homography matrix")
+            results['homography'] = {
+                'status': 'existing',
+                'file': homography_file
+            }
         
         # Step 2: Chunked Processing
         self.print_banner("STEP 2: CHUNKED VIDEO PROCESSING")
@@ -99,13 +112,16 @@ class CompleteTrackingWorkflow:
         logger.info(f"Processing video with memory-efficient chunking...")
         logger.info(f"Input: {video_path}")
         
+        merged_tracks = None
         try:
             processing_dir = os.path.join(output_dir, 'processing')
             stats = self.pipeline.process_video_chunked(
                 video_path=video_path,
                 output_dir=processing_dir,
-                use_stub=False
+                use_stub=False,
+                return_merged_tracks=True
             )
+            merged_tracks = stats.pop('tracks', None)
             
             results['processing'] = {
                 'status': 'success',
@@ -131,7 +147,8 @@ class CompleteTrackingWorkflow:
             eval_dir = os.path.join(output_dir, 'evaluation')
             metrics = self.evaluator.evaluate_video(
                 video_path=video_path,
-                output_dir=eval_dir
+                output_dir=eval_dir,
+                existing_tracks=merged_tracks
             )
             
             results['evaluation'] = {
@@ -162,14 +179,14 @@ class CompleteTrackingWorkflow:
         """Print formatted results summary"""
         self.print_banner("WORKFLOW RESULTS SUMMARY")
         
-        print("\n📝 Homography Calibration:")
+        print("\n Homography Calibration:")
         hom = results.get('homography', {})
         if hom.get('status') == 'success':
             print(f"  ✓ Completed - {hom.get('file')}")
         else:
-            print(f"  ◐ {hom.get('status', 'unknown')}")
+            print(f"   {hom.get('status', 'unknown')}")
         
-        print("\n🎬 Chunked Processing:")
+        print("\n Chunked Processing:")
         proc = results.get('processing', {})
         if proc.get('status') == 'success':
             print(f"  ✓ Completed")
@@ -180,7 +197,7 @@ class CompleteTrackingWorkflow:
         else:
             print(f"  ✗ {proc.get('status', 'unknown')}: {proc.get('error', 'No error details')}")
         
-        print("\n📊 Evaluation:")
+        print("\n Evaluation:")
         eval_res = results.get('evaluation', {})
         if eval_res.get('status') == 'success':
             print(f"  ✓ Completed")

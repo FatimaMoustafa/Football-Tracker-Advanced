@@ -1,0 +1,4640 @@
+{
+  "meta": {
+    "fps": 30,
+    "total_frames": 30,
+    "pitch_length_m": 105.0,
+    "pitch_width_m": 68.0,
+    "teams": [
+      {
+        "team_id": 1,
+        "name": "Team A"
+      },
+      {
+        "team_id": 2,
+        "name": "Team B"
+      }
+    ]
+  },
+  "players": [
+    {
+      "id": 101,
+      "team_id": 1,
+      "jersey_number": 10,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 20.02,
+          "y": 30.13,
+          "speed_mps": 3.92,
+          "velocity": {
+            "vx": 0.59,
+            "vy": 3.87
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 81.4
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 20.05,
+          "y": 30.27,
+          "speed_mps": 4.34,
+          "velocity": {
+            "vx": 0.86,
+            "vy": 4.26
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 78.6
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 20.07,
+          "y": 30.4,
+          "speed_mps": 3.95,
+          "velocity": {
+            "vx": 0.51,
+            "vy": 3.92
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 82.5
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 20.09,
+          "y": 30.53,
+          "speed_mps": 4.03,
+          "velocity": {
+            "vx": 0.85,
+            "vy": 3.94
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 77.8
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 20.13,
+          "y": 30.66,
+          "speed_mps": 4.02,
+          "velocity": {
+            "vx": 1.17,
+            "vy": 3.85
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 73.1
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 20.17,
+          "y": 30.79,
+          "speed_mps": 4.03,
+          "velocity": {
+            "vx": 1.14,
+            "vy": 3.87
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 73.6
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 20.2,
+          "y": 30.92,
+          "speed_mps": 3.9,
+          "velocity": {
+            "vx": 0.9,
+            "vy": 3.8
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 76.7
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 20.23,
+          "y": 31.05,
+          "speed_mps": 4.1,
+          "velocity": {
+            "vx": 0.81,
+            "vy": 4.02
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 78.6
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 20.24,
+          "y": 31.19,
+          "speed_mps": 4.1,
+          "velocity": {
+            "vx": 0.49,
+            "vy": 4.07
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 83.2
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 20.27,
+          "y": 31.33,
+          "speed_mps": 4.41,
+          "velocity": {
+            "vx": 0.83,
+            "vy": 4.33
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 79.2
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 20.29,
+          "y": 31.47,
+          "speed_mps": 4.34,
+          "velocity": {
+            "vx": 0.59,
+            "vy": 4.3
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 82.2
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 20.3,
+          "y": 31.61,
+          "speed_mps": 4.13,
+          "velocity": {
+            "vx": 0.22,
+            "vy": 4.12
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 87.0
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 20.3,
+          "y": 31.75,
+          "speed_mps": 4.27,
+          "velocity": {
+            "vx": -0.02,
+            "vy": 4.27
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 90.3
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 20.3,
+          "y": 31.9,
+          "speed_mps": 4.32,
+          "velocity": {
+            "vx": -0.08,
+            "vy": 4.32
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 91.0
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 20.3,
+          "y": 32.03,
+          "speed_mps": 4.07,
+          "velocity": {
+            "vx": 0.12,
+            "vy": 4.07
+          },
+          "confidence": 0.83,
+          "interpolated": true,
+          "direction_deg": 88.3
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 20.31,
+          "y": 32.17,
+          "speed_mps": 3.96,
+          "velocity": {
+            "vx": 0.3,
+            "vy": 3.95
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 85.7
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 20.32,
+          "y": 32.3,
+          "speed_mps": 4.12,
+          "velocity": {
+            "vx": 0.21,
+            "vy": 4.11
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 87.0
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 20.33,
+          "y": 32.44,
+          "speed_mps": 4.06,
+          "velocity": {
+            "vx": 0.42,
+            "vy": 4.04
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 84.1
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 20.34,
+          "y": 32.58,
+          "speed_mps": 4.27,
+          "velocity": {
+            "vx": 0.33,
+            "vy": 4.25
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 85.6
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 20.35,
+          "y": 32.71,
+          "speed_mps": 4.0,
+          "velocity": {
+            "vx": 0.15,
+            "vy": 4.0
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 87.9
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 20.34,
+          "y": 32.85,
+          "speed_mps": 4.28,
+          "velocity": {
+            "vx": -0.21,
+            "vy": 4.28
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 92.8
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 20.33,
+          "y": 33.0,
+          "speed_mps": 4.41,
+          "velocity": {
+            "vx": -0.35,
+            "vy": 4.39
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 94.6
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 20.32,
+          "y": 33.13,
+          "speed_mps": 3.92,
+          "velocity": {
+            "vx": -0.13,
+            "vy": 3.92
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 91.9
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 20.32,
+          "y": 33.27,
+          "speed_mps": 4.03,
+          "velocity": {
+            "vx": 0.03,
+            "vy": 4.03
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 89.6
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 20.32,
+          "y": 33.4,
+          "speed_mps": 4.09,
+          "velocity": {
+            "vx": -0.24,
+            "vy": 4.08
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 93.3
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 20.31,
+          "y": 33.55,
+          "speed_mps": 4.45,
+          "velocity": {
+            "vx": -0.18,
+            "vy": 4.45
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 92.3
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 20.31,
+          "y": 33.69,
+          "speed_mps": 4.05,
+          "velocity": {
+            "vx": 0.0,
+            "vy": 4.05
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 90.0
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 20.32,
+          "y": 33.83,
+          "speed_mps": 4.25,
+          "velocity": {
+            "vx": 0.18,
+            "vy": 4.25
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 87.6
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 20.32,
+          "y": 33.96,
+          "speed_mps": 4.03,
+          "velocity": {
+            "vx": 0.24,
+            "vy": 4.02
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 86.6
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 20.33,
+          "y": 34.09,
+          "speed_mps": 3.95,
+          "velocity": {
+            "vx": 0.23,
+            "vy": 3.95
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 86.7
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "team_id": 1,
+      "jersey_number": 7,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 18.05,
+          "y": 45.11,
+          "speed_mps": 3.58,
+          "velocity": {
+            "vx": 1.45,
+            "vy": 3.27
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 66.1
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 18.09,
+          "y": 45.21,
+          "speed_mps": 3.24,
+          "velocity": {
+            "vx": 1.35,
+            "vy": 2.94
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 65.3
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 18.13,
+          "y": 45.32,
+          "speed_mps": 3.52,
+          "velocity": {
+            "vx": 1.19,
+            "vy": 3.31
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 70.3
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 18.16,
+          "y": 45.42,
+          "speed_mps": 3.21,
+          "velocity": {
+            "vx": 0.89,
+            "vy": 3.08
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 73.9
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 18.19,
+          "y": 45.53,
+          "speed_mps": 3.52,
+          "velocity": {
+            "vx": 0.87,
+            "vy": 3.41
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 75.7
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 18.22,
+          "y": 45.64,
+          "speed_mps": 3.27,
+          "velocity": {
+            "vx": 0.73,
+            "vy": 3.18
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 77.1
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 18.25,
+          "y": 45.76,
+          "speed_mps": 3.77,
+          "velocity": {
+            "vx": 0.87,
+            "vy": 3.67
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 76.7
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 18.28,
+          "y": 45.87,
+          "speed_mps": 3.5,
+          "velocity": {
+            "vx": 0.95,
+            "vy": 3.37
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 74.3
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 18.3,
+          "y": 46.0,
+          "speed_mps": 3.72,
+          "velocity": {
+            "vx": 0.75,
+            "vy": 3.65
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 78.4
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 18.32,
+          "y": 46.11,
+          "speed_mps": 3.57,
+          "velocity": {
+            "vx": 0.63,
+            "vy": 3.51
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 79.8
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 18.34,
+          "y": 46.23,
+          "speed_mps": 3.52,
+          "velocity": {
+            "vx": 0.46,
+            "vy": 3.49
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 82.4
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 18.35,
+          "y": 46.33,
+          "speed_mps": 3.2,
+          "velocity": {
+            "vx": 0.41,
+            "vy": 3.17
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 82.7
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 18.38,
+          "y": 46.46,
+          "speed_mps": 3.76,
+          "velocity": {
+            "vx": 0.79,
+            "vy": 3.67
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 77.9
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 18.4,
+          "y": 46.57,
+          "speed_mps": 3.38,
+          "velocity": {
+            "vx": 0.52,
+            "vy": 3.35
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 81.2
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 18.41,
+          "y": 46.69,
+          "speed_mps": 3.77,
+          "velocity": {
+            "vx": 0.33,
+            "vy": 3.75
+          },
+          "confidence": 0.83,
+          "interpolated": true,
+          "direction_deg": 85.0
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 18.42,
+          "y": 46.8,
+          "speed_mps": 3.24,
+          "velocity": {
+            "vx": 0.29,
+            "vy": 3.23
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 84.9
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 18.42,
+          "y": 46.91,
+          "speed_mps": 3.28,
+          "velocity": {
+            "vx": 0.14,
+            "vy": 3.27
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 87.5
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 18.42,
+          "y": 47.02,
+          "speed_mps": 3.36,
+          "velocity": {
+            "vx": 0.12,
+            "vy": 3.36
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 88.0
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 18.43,
+          "y": 47.13,
+          "speed_mps": 3.33,
+          "velocity": {
+            "vx": 0.16,
+            "vy": 3.32
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 87.3
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 18.43,
+          "y": 47.24,
+          "speed_mps": 3.32,
+          "velocity": {
+            "vx": 0.03,
+            "vy": 3.32
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 89.6
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 18.42,
+          "y": 47.36,
+          "speed_mps": 3.59,
+          "velocity": {
+            "vx": -0.28,
+            "vy": 3.58
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 94.5
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 18.41,
+          "y": 47.47,
+          "speed_mps": 3.27,
+          "velocity": {
+            "vx": -0.27,
+            "vy": 3.26
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 94.7
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 18.41,
+          "y": 47.59,
+          "speed_mps": 3.55,
+          "velocity": {
+            "vx": -0.19,
+            "vy": 3.55
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 93.1
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 18.41,
+          "y": 47.7,
+          "speed_mps": 3.24,
+          "velocity": {
+            "vx": -0.02,
+            "vy": 3.24
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 90.3
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 18.41,
+          "y": 47.82,
+          "speed_mps": 3.74,
+          "velocity": {
+            "vx": 0.16,
+            "vy": 3.74
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 87.6
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 18.42,
+          "y": 47.93,
+          "speed_mps": 3.34,
+          "velocity": {
+            "vx": 0.39,
+            "vy": 3.32
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 83.3
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 18.44,
+          "y": 48.04,
+          "speed_mps": 3.28,
+          "velocity": {
+            "vx": 0.55,
+            "vy": 3.23
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 80.4
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 18.46,
+          "y": 48.16,
+          "speed_mps": 3.48,
+          "velocity": {
+            "vx": 0.54,
+            "vy": 3.44
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 81.1
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 18.47,
+          "y": 48.27,
+          "speed_mps": 3.31,
+          "velocity": {
+            "vx": 0.33,
+            "vy": 3.3
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 84.2
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 18.48,
+          "y": 48.38,
+          "speed_mps": 3.45,
+          "velocity": {
+            "vx": 0.39,
+            "vy": 3.43
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 83.5
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "team_id": 1,
+      "jersey_number": 9,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 24.98,
+          "y": 20.2,
+          "speed_mps": 5.9,
+          "velocity": {
+            "vx": -0.75,
+            "vy": 5.86
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 97.3
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 24.96,
+          "y": 20.39,
+          "speed_mps": 5.74,
+          "velocity": {
+            "vx": -0.33,
+            "vy": 5.73
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 93.3
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 24.94,
+          "y": 20.57,
+          "speed_mps": 5.65,
+          "velocity": {
+            "vx": -0.68,
+            "vy": 5.61
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 96.9
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 24.92,
+          "y": 20.76,
+          "speed_mps": 5.75,
+          "velocity": {
+            "vx": -0.64,
+            "vy": 5.72
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 96.4
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 24.91,
+          "y": 20.97,
+          "speed_mps": 6.05,
+          "velocity": {
+            "vx": -0.41,
+            "vy": 6.04
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 93.9
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 24.88,
+          "y": 21.16,
+          "speed_mps": 5.83,
+          "velocity": {
+            "vx": -0.76,
+            "vy": 5.78
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 97.5
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 24.84,
+          "y": 21.35,
+          "speed_mps": 6.0,
+          "velocity": {
+            "vx": -1.3,
+            "vy": 5.86
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 102.5
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 24.78,
+          "y": 21.55,
+          "speed_mps": 6.01,
+          "velocity": {
+            "vx": -1.73,
+            "vy": 5.75
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 106.7
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 24.73,
+          "y": 21.72,
+          "speed_mps": 5.63,
+          "velocity": {
+            "vx": -1.61,
+            "vy": 5.39
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 106.6
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 24.69,
+          "y": 21.91,
+          "speed_mps": 5.73,
+          "velocity": {
+            "vx": -1.21,
+            "vy": 5.6
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 102.2
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 24.65,
+          "y": 22.11,
+          "speed_mps": 5.97,
+          "velocity": {
+            "vx": -1.02,
+            "vy": 5.88
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 99.8
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 24.62,
+          "y": 22.31,
+          "speed_mps": 6.07,
+          "velocity": {
+            "vx": -0.96,
+            "vy": 6.0
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 99.1
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 24.59,
+          "y": 22.5,
+          "speed_mps": 5.93,
+          "velocity": {
+            "vx": -0.99,
+            "vy": 5.85
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 99.6
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 24.56,
+          "y": 22.7,
+          "speed_mps": 6.08,
+          "velocity": {
+            "vx": -0.8,
+            "vy": 6.03
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 97.6
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 24.53,
+          "y": 22.9,
+          "speed_mps": 5.95,
+          "velocity": {
+            "vx": -0.83,
+            "vy": 5.89
+          },
+          "confidence": 0.83,
+          "interpolated": true,
+          "direction_deg": 98.0
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 24.5,
+          "y": 23.09,
+          "speed_mps": 5.8,
+          "velocity": {
+            "vx": -0.89,
+            "vy": 5.73
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 98.9
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 24.48,
+          "y": 23.29,
+          "speed_mps": 6.08,
+          "velocity": {
+            "vx": -0.58,
+            "vy": 6.05
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 95.4
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 24.48,
+          "y": 23.49,
+          "speed_mps": 5.86,
+          "velocity": {
+            "vx": -0.23,
+            "vy": 5.85
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 92.3
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 24.48,
+          "y": 23.67,
+          "speed_mps": 5.57,
+          "velocity": {
+            "vx": 0.03,
+            "vy": 5.57
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 89.6
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 24.49,
+          "y": 23.87,
+          "speed_mps": 5.86,
+          "velocity": {
+            "vx": 0.3,
+            "vy": 5.85
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 87.1
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 24.5,
+          "y": 24.06,
+          "speed_mps": 5.85,
+          "velocity": {
+            "vx": 0.38,
+            "vy": 5.84
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 86.3
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 24.5,
+          "y": 24.25,
+          "speed_mps": 5.62,
+          "velocity": {
+            "vx": -0.06,
+            "vy": 5.62
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 90.6
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 24.5,
+          "y": 24.44,
+          "speed_mps": 5.74,
+          "velocity": {
+            "vx": 0.2,
+            "vy": 5.73
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 88.0
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 24.52,
+          "y": 24.63,
+          "speed_mps": 5.69,
+          "velocity": {
+            "vx": 0.39,
+            "vy": 5.68
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 86.0
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 24.55,
+          "y": 24.82,
+          "speed_mps": 5.77,
+          "velocity": {
+            "vx": 0.83,
+            "vy": 5.72
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 81.8
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 24.56,
+          "y": 25.01,
+          "speed_mps": 5.54,
+          "velocity": {
+            "vx": 0.32,
+            "vy": 5.53
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 86.7
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 24.58,
+          "y": 25.21,
+          "speed_mps": 6.06,
+          "velocity": {
+            "vx": 0.59,
+            "vy": 6.03
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 84.4
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 24.58,
+          "y": 25.4,
+          "speed_mps": 5.72,
+          "velocity": {
+            "vx": 0.18,
+            "vy": 5.72
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 88.2
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 24.58,
+          "y": 25.59,
+          "speed_mps": 5.92,
+          "velocity": {
+            "vx": -0.16,
+            "vy": 5.92
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 91.5
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "team_id": 1,
+      "jersey_number": 4,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 10.03,
+          "y": 34.07,
+          "speed_mps": 2.19,
+          "velocity": {
+            "vx": 0.93,
+            "vy": 1.98
+          },
+          "confidence": 0.82,
+          "interpolated": false,
+          "direction_deg": 64.9
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 10.06,
+          "y": 34.13,
+          "speed_mps": 1.98,
+          "velocity": {
+            "vx": 0.74,
+            "vy": 1.84
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 68.0
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 10.07,
+          "y": 34.19,
+          "speed_mps": 1.88,
+          "velocity": {
+            "vx": 0.57,
+            "vy": 1.79
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 72.4
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 10.1,
+          "y": 34.25,
+          "speed_mps": 2.13,
+          "velocity": {
+            "vx": 0.78,
+            "vy": 1.98
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 68.5
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 10.13,
+          "y": 34.32,
+          "speed_mps": 2.23,
+          "velocity": {
+            "vx": 0.78,
+            "vy": 2.09
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 69.6
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 10.15,
+          "y": 34.38,
+          "speed_mps": 1.96,
+          "velocity": {
+            "vx": 0.64,
+            "vy": 1.85
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 70.9
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 10.17,
+          "y": 34.46,
+          "speed_mps": 2.31,
+          "velocity": {
+            "vx": 0.6,
+            "vy": 2.23
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 74.9
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 10.19,
+          "y": 34.52,
+          "speed_mps": 1.97,
+          "velocity": {
+            "vx": 0.54,
+            "vy": 1.89
+          },
+          "confidence": 0.82,
+          "interpolated": false,
+          "direction_deg": 74.2
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 10.2,
+          "y": 34.59,
+          "speed_mps": 2.18,
+          "velocity": {
+            "vx": 0.49,
+            "vy": 2.13
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 76.9
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 10.22,
+          "y": 34.66,
+          "speed_mps": 2.13,
+          "velocity": {
+            "vx": 0.4,
+            "vy": 2.09
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 79.3
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 10.23,
+          "y": 34.72,
+          "speed_mps": 1.85,
+          "velocity": {
+            "vx": 0.5,
+            "vy": 1.78
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 74.4
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 10.25,
+          "y": 34.79,
+          "speed_mps": 2.13,
+          "velocity": {
+            "vx": 0.43,
+            "vy": 2.08
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 78.4
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 10.26,
+          "y": 34.85,
+          "speed_mps": 1.89,
+          "velocity": {
+            "vx": 0.35,
+            "vy": 1.86
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 79.3
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 10.28,
+          "y": 34.93,
+          "speed_mps": 2.34,
+          "velocity": {
+            "vx": 0.51,
+            "vy": 2.28
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 77.3
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 10.29,
+          "y": 35.01,
+          "speed_mps": 2.34,
+          "velocity": {
+            "vx": 0.37,
+            "vy": 2.31
+          },
+          "confidence": 0.85,
+          "interpolated": true,
+          "direction_deg": 81.0
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 10.3,
+          "y": 35.07,
+          "speed_mps": 1.86,
+          "velocity": {
+            "vx": 0.37,
+            "vy": 1.82
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 78.5
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 10.31,
+          "y": 35.13,
+          "speed_mps": 2.04,
+          "velocity": {
+            "vx": 0.27,
+            "vy": 2.03
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 82.3
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 10.32,
+          "y": 35.21,
+          "speed_mps": 2.36,
+          "velocity": {
+            "vx": 0.46,
+            "vy": 2.31
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 78.8
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 10.33,
+          "y": 35.29,
+          "speed_mps": 2.29,
+          "velocity": {
+            "vx": 0.25,
+            "vy": 2.27
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 83.6
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 10.35,
+          "y": 35.36,
+          "speed_mps": 2.24,
+          "velocity": {
+            "vx": 0.43,
+            "vy": 2.2
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 78.8
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 10.36,
+          "y": 35.44,
+          "speed_mps": 2.28,
+          "velocity": {
+            "vx": 0.27,
+            "vy": 2.27
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 83.2
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 10.36,
+          "y": 35.5,
+          "speed_mps": 1.96,
+          "velocity": {
+            "vx": 0.13,
+            "vy": 1.96
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 86.3
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 10.37,
+          "y": 35.58,
+          "speed_mps": 2.32,
+          "velocity": {
+            "vx": 0.31,
+            "vy": 2.3
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 82.3
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 10.38,
+          "y": 35.65,
+          "speed_mps": 2.29,
+          "velocity": {
+            "vx": 0.41,
+            "vy": 2.25
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 79.6
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 10.4,
+          "y": 35.73,
+          "speed_mps": 2.28,
+          "velocity": {
+            "vx": 0.49,
+            "vy": 2.22
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 77.6
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 10.42,
+          "y": 35.79,
+          "speed_mps": 1.92,
+          "velocity": {
+            "vx": 0.56,
+            "vy": 1.83
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 72.9
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 10.44,
+          "y": 35.87,
+          "speed_mps": 2.38,
+          "velocity": {
+            "vx": 0.56,
+            "vy": 2.31
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 76.5
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 10.45,
+          "y": 35.93,
+          "speed_mps": 2.04,
+          "velocity": {
+            "vx": 0.43,
+            "vy": 1.99
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 77.9
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 10.47,
+          "y": 36.01,
+          "speed_mps": 2.36,
+          "velocity": {
+            "vx": 0.48,
+            "vy": 2.31
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 78.3
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 10.48,
+          "y": 36.07,
+          "speed_mps": 1.91,
+          "velocity": {
+            "vx": 0.23,
+            "vy": 1.89
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 83.0
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "team_id": 1,
+      "jersey_number": 11,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 22.03,
+          "y": 55.2,
+          "speed_mps": 6.07,
+          "velocity": {
+            "vx": 0.78,
+            "vy": 6.02
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 82.7
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 22.04,
+          "y": 55.41,
+          "speed_mps": 6.19,
+          "velocity": {
+            "vx": 0.55,
+            "vy": 6.16
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 84.9
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 22.06,
+          "y": 55.61,
+          "speed_mps": 6.23,
+          "velocity": {
+            "vx": 0.54,
+            "vy": 6.21
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 85.1
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 22.09,
+          "y": 55.83,
+          "speed_mps": 6.43,
+          "velocity": {
+            "vx": 0.83,
+            "vy": 6.37
+          },
+          "confidence": 0.82,
+          "interpolated": false,
+          "direction_deg": 82.6
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 22.1,
+          "y": 56.04,
+          "speed_mps": 6.32,
+          "velocity": {
+            "vx": 0.35,
+            "vy": 6.31
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 86.9
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 22.1,
+          "y": 56.25,
+          "speed_mps": 6.4,
+          "velocity": {
+            "vx": 0.08,
+            "vy": 6.4
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 89.3
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 22.12,
+          "y": 56.46,
+          "speed_mps": 6.4,
+          "velocity": {
+            "vx": 0.56,
+            "vy": 6.37
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 85.0
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 22.15,
+          "y": 56.68,
+          "speed_mps": 6.51,
+          "velocity": {
+            "vx": 0.78,
+            "vy": 6.46
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 83.1
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 22.18,
+          "y": 56.88,
+          "speed_mps": 6.19,
+          "velocity": {
+            "vx": 0.95,
+            "vy": 6.11
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 81.1
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 22.22,
+          "y": 57.08,
+          "speed_mps": 6.18,
+          "velocity": {
+            "vx": 1.06,
+            "vy": 6.09
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 80.1
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 22.26,
+          "y": 57.3,
+          "speed_mps": 6.56,
+          "velocity": {
+            "vx": 1.21,
+            "vy": 6.45
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 79.3
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 22.28,
+          "y": 57.51,
+          "speed_mps": 6.37,
+          "velocity": {
+            "vx": 0.73,
+            "vy": 6.33
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 83.4
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 22.3,
+          "y": 57.71,
+          "speed_mps": 6.0,
+          "velocity": {
+            "vx": 0.64,
+            "vy": 5.97
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 83.9
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 22.33,
+          "y": 57.92,
+          "speed_mps": 6.35,
+          "velocity": {
+            "vx": 0.76,
+            "vy": 6.3
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 83.2
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 22.35,
+          "y": 58.13,
+          "speed_mps": 6.27,
+          "velocity": {
+            "vx": 0.78,
+            "vy": 6.22
+          },
+          "confidence": 0.85,
+          "interpolated": true,
+          "direction_deg": 82.8
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 22.38,
+          "y": 58.34,
+          "speed_mps": 6.54,
+          "velocity": {
+            "vx": 0.85,
+            "vy": 6.49
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 82.5
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 22.42,
+          "y": 58.54,
+          "speed_mps": 6.05,
+          "velocity": {
+            "vx": 1.13,
+            "vy": 5.94
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 79.2
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 22.45,
+          "y": 58.74,
+          "speed_mps": 6.2,
+          "velocity": {
+            "vx": 1.02,
+            "vy": 6.12
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 80.6
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 22.48,
+          "y": 58.96,
+          "speed_mps": 6.4,
+          "velocity": {
+            "vx": 0.77,
+            "vy": 6.36
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 83.1
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 22.51,
+          "y": 59.15,
+          "speed_mps": 6.01,
+          "velocity": {
+            "vx": 1.04,
+            "vy": 5.92
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 80.1
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 22.55,
+          "y": 59.37,
+          "speed_mps": 6.51,
+          "velocity": {
+            "vx": 1.15,
+            "vy": 6.41
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 79.8
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 22.59,
+          "y": 59.58,
+          "speed_mps": 6.38,
+          "velocity": {
+            "vx": 1.22,
+            "vy": 6.26
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 79.0
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 22.63,
+          "y": 59.78,
+          "speed_mps": 6.3,
+          "velocity": {
+            "vx": 0.99,
+            "vy": 6.22
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 80.9
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 22.65,
+          "y": 59.98,
+          "speed_mps": 6.0,
+          "velocity": {
+            "vx": 0.79,
+            "vy": 5.95
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 82.5
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 22.67,
+          "y": 60.18,
+          "speed_mps": 6.06,
+          "velocity": {
+            "vx": 0.51,
+            "vy": 6.04
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 85.2
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 22.7,
+          "y": 60.4,
+          "speed_mps": 6.57,
+          "velocity": {
+            "vx": 0.92,
+            "vy": 6.51
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 81.9
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 22.74,
+          "y": 60.6,
+          "speed_mps": 6.15,
+          "velocity": {
+            "vx": 1.34,
+            "vy": 6.0
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 77.4
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 22.79,
+          "y": 60.81,
+          "speed_mps": 6.48,
+          "velocity": {
+            "vx": 1.46,
+            "vy": 6.32
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 77.0
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 22.82,
+          "y": 61.02,
+          "speed_mps": 6.36,
+          "velocity": {
+            "vx": 0.9,
+            "vy": 6.29
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 81.9
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 22.84,
+          "y": 61.23,
+          "speed_mps": 6.37,
+          "velocity": {
+            "vx": 0.47,
+            "vy": 6.35
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 85.8
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "team_id": 2,
+      "jersey_number": 10,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 59.97,
+          "y": 31.85,
+          "speed_mps": 4.7,
+          "velocity": {
+            "vx": -0.81,
+            "vy": -4.63
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 260.0
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 59.96,
+          "y": 31.69,
+          "speed_mps": 4.65,
+          "velocity": {
+            "vx": -0.48,
+            "vy": -4.62
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 264.0
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 59.94,
+          "y": 31.55,
+          "speed_mps": 4.35,
+          "velocity": {
+            "vx": -0.63,
+            "vy": -4.3
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 261.6
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 59.92,
+          "y": 31.4,
+          "speed_mps": 4.51,
+          "velocity": {
+            "vx": -0.45,
+            "vy": -4.49
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 264.3
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 59.9,
+          "y": 31.26,
+          "speed_mps": 4.25,
+          "velocity": {
+            "vx": -0.59,
+            "vy": -4.21
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 262.0
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 59.88,
+          "y": 31.11,
+          "speed_mps": 4.39,
+          "velocity": {
+            "vx": -0.78,
+            "vy": -4.32
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 259.7
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 59.84,
+          "y": 30.97,
+          "speed_mps": 4.34,
+          "velocity": {
+            "vx": -1.04,
+            "vy": -4.21
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 256.1
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 59.81,
+          "y": 30.84,
+          "speed_mps": 4.24,
+          "velocity": {
+            "vx": -0.87,
+            "vy": -4.15
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 258.2
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 59.78,
+          "y": 30.69,
+          "speed_mps": 4.45,
+          "velocity": {
+            "vx": -0.88,
+            "vy": -4.36
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 258.6
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 59.75,
+          "y": 30.54,
+          "speed_mps": 4.74,
+          "velocity": {
+            "vx": -1.0,
+            "vy": -4.64
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 257.8
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 59.72,
+          "y": 30.38,
+          "speed_mps": 4.71,
+          "velocity": {
+            "vx": -0.84,
+            "vy": -4.64
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 259.8
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 59.69,
+          "y": 30.24,
+          "speed_mps": 4.2,
+          "velocity": {
+            "vx": -0.83,
+            "vy": -4.12
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 258.6
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 59.67,
+          "y": 30.09,
+          "speed_mps": 4.71,
+          "velocity": {
+            "vx": -0.73,
+            "vy": -4.66
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 261.1
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 59.64,
+          "y": 29.94,
+          "speed_mps": 4.65,
+          "velocity": {
+            "vx": -0.78,
+            "vy": -4.58
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 260.3
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 59.62,
+          "y": 29.79,
+          "speed_mps": 4.33,
+          "velocity": {
+            "vx": -0.65,
+            "vy": -4.28
+          },
+          "confidence": 0.85,
+          "interpolated": true,
+          "direction_deg": 261.3
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 59.6,
+          "y": 29.65,
+          "speed_mps": 4.22,
+          "velocity": {
+            "vx": -0.68,
+            "vy": -4.16
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 260.7
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 59.58,
+          "y": 29.51,
+          "speed_mps": 4.44,
+          "velocity": {
+            "vx": -0.58,
+            "vy": -4.4
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 262.5
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 59.56,
+          "y": 29.37,
+          "speed_mps": 4.28,
+          "velocity": {
+            "vx": -0.58,
+            "vy": -4.24
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 262.1
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 59.53,
+          "y": 29.22,
+          "speed_mps": 4.44,
+          "velocity": {
+            "vx": -0.97,
+            "vy": -4.33
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 257.4
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 59.48,
+          "y": 29.08,
+          "speed_mps": 4.59,
+          "velocity": {
+            "vx": -1.36,
+            "vy": -4.38
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 252.7
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 59.44,
+          "y": 28.94,
+          "speed_mps": 4.23,
+          "velocity": {
+            "vx": -1.29,
+            "vy": -4.03
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 252.3
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 59.39,
+          "y": 28.8,
+          "speed_mps": 4.4,
+          "velocity": {
+            "vx": -1.55,
+            "vy": -4.12
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 249.4
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 59.33,
+          "y": 28.66,
+          "speed_mps": 4.65,
+          "velocity": {
+            "vx": -1.73,
+            "vy": -4.32
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 248.2
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 59.27,
+          "y": 28.53,
+          "speed_mps": 4.25,
+          "velocity": {
+            "vx": -1.75,
+            "vy": -3.87
+          },
+          "confidence": 0.82,
+          "interpolated": false,
+          "direction_deg": 245.7
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 59.21,
+          "y": 28.38,
+          "speed_mps": 4.8,
+          "velocity": {
+            "vx": -1.94,
+            "vy": -4.39
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 246.1
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 59.15,
+          "y": 28.24,
+          "speed_mps": 4.67,
+          "velocity": {
+            "vx": -1.78,
+            "vy": -4.32
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 247.6
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 59.09,
+          "y": 28.09,
+          "speed_mps": 4.77,
+          "velocity": {
+            "vx": -1.62,
+            "vy": -4.49
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 250.2
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 59.03,
+          "y": 27.96,
+          "speed_mps": 4.29,
+          "velocity": {
+            "vx": -1.79,
+            "vy": -3.9
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 245.4
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 58.97,
+          "y": 27.82,
+          "speed_mps": 4.54,
+          "velocity": {
+            "vx": -1.77,
+            "vy": -4.18
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 247.1
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 58.92,
+          "y": 27.68,
+          "speed_mps": 4.66,
+          "velocity": {
+            "vx": -1.66,
+            "vy": -4.35
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 249.1
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "team_id": 2,
+      "jersey_number": 8,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 61.96,
+          "y": 19.88,
+          "speed_mps": 3.95,
+          "velocity": {
+            "vx": -1.28,
+            "vy": -3.74
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 251.1
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 61.92,
+          "y": 19.74,
+          "speed_mps": 4.08,
+          "velocity": {
+            "vx": -1.11,
+            "vy": -3.93
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 254.3
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 61.88,
+          "y": 19.63,
+          "speed_mps": 3.69,
+          "velocity": {
+            "vx": -1.29,
+            "vy": -3.45
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 249.5
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 61.84,
+          "y": 19.51,
+          "speed_mps": 3.74,
+          "velocity": {
+            "vx": -1.02,
+            "vy": -3.6
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 254.1
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 61.8,
+          "y": 19.39,
+          "speed_mps": 3.91,
+          "velocity": {
+            "vx": -1.35,
+            "vy": -3.68
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 249.9
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 61.74,
+          "y": 19.27,
+          "speed_mps": 3.96,
+          "velocity": {
+            "vx": -1.62,
+            "vy": -3.62
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 245.9
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 61.7,
+          "y": 19.16,
+          "speed_mps": 3.57,
+          "velocity": {
+            "vx": -1.4,
+            "vy": -3.29
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 246.9
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 61.65,
+          "y": 19.04,
+          "speed_mps": 3.71,
+          "velocity": {
+            "vx": -1.29,
+            "vy": -3.48
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 249.7
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 61.61,
+          "y": 18.92,
+          "speed_mps": 3.8,
+          "velocity": {
+            "vx": -1.4,
+            "vy": -3.54
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 248.4
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 61.57,
+          "y": 18.8,
+          "speed_mps": 3.99,
+          "velocity": {
+            "vx": -1.24,
+            "vy": -3.8
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 251.9
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 61.54,
+          "y": 18.67,
+          "speed_mps": 3.88,
+          "velocity": {
+            "vx": -0.9,
+            "vy": -3.77
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 256.5
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 61.51,
+          "y": 18.55,
+          "speed_mps": 3.76,
+          "velocity": {
+            "vx": -0.74,
+            "vy": -3.69
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 258.6
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 61.5,
+          "y": 18.43,
+          "speed_mps": 3.66,
+          "velocity": {
+            "vx": -0.43,
+            "vy": -3.64
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 263.3
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 61.48,
+          "y": 18.3,
+          "speed_mps": 3.79,
+          "velocity": {
+            "vx": -0.42,
+            "vy": -3.77
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 263.6
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 61.47,
+          "y": 18.18,
+          "speed_mps": 3.66,
+          "velocity": {
+            "vx": -0.26,
+            "vy": -3.65
+          },
+          "confidence": 0.95,
+          "interpolated": true,
+          "direction_deg": 265.9
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 61.47,
+          "y": 18.06,
+          "speed_mps": 3.55,
+          "velocity": {
+            "vx": -0.05,
+            "vy": -3.55
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 269.2
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 61.47,
+          "y": 17.93,
+          "speed_mps": 3.78,
+          "velocity": {
+            "vx": -0.22,
+            "vy": -3.77
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 266.7
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 61.46,
+          "y": 17.82,
+          "speed_mps": 3.52,
+          "velocity": {
+            "vx": -0.28,
+            "vy": -3.51
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 265.5
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 61.44,
+          "y": 17.7,
+          "speed_mps": 3.63,
+          "velocity": {
+            "vx": -0.49,
+            "vy": -3.59
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 262.3
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 61.42,
+          "y": 17.57,
+          "speed_mps": 4.03,
+          "velocity": {
+            "vx": -0.65,
+            "vy": -3.98
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 260.7
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 61.4,
+          "y": 17.45,
+          "speed_mps": 3.51,
+          "velocity": {
+            "vx": -0.7,
+            "vy": -3.44
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 258.5
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 61.36,
+          "y": 17.32,
+          "speed_mps": 3.93,
+          "velocity": {
+            "vx": -1.06,
+            "vy": -3.79
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 254.3
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 61.33,
+          "y": 17.2,
+          "speed_mps": 3.91,
+          "velocity": {
+            "vx": -0.89,
+            "vy": -3.81
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 256.9
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 61.3,
+          "y": 17.07,
+          "speed_mps": 3.98,
+          "velocity": {
+            "vx": -0.91,
+            "vy": -3.87
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 256.8
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 61.26,
+          "y": 16.94,
+          "speed_mps": 3.92,
+          "velocity": {
+            "vx": -1.08,
+            "vy": -3.76
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 254.0
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 61.23,
+          "y": 16.82,
+          "speed_mps": 3.78,
+          "velocity": {
+            "vx": -0.99,
+            "vy": -3.65
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 254.8
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 61.19,
+          "y": 16.69,
+          "speed_mps": 3.95,
+          "velocity": {
+            "vx": -1.08,
+            "vy": -3.8
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 254.1
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 61.17,
+          "y": 16.58,
+          "speed_mps": 3.66,
+          "velocity": {
+            "vx": -0.88,
+            "vy": -3.56
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 256.1
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 61.13,
+          "y": 16.46,
+          "speed_mps": 3.62,
+          "velocity": {
+            "vx": -1.1,
+            "vy": -3.44
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 252.3
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 61.09,
+          "y": 16.34,
+          "speed_mps": 3.96,
+          "velocity": {
+            "vx": -1.18,
+            "vy": -3.78
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 252.7
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "team_id": 2,
+      "jersey_number": 9,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 69.99,
+          "y": 43.83,
+          "speed_mps": 5.09,
+          "velocity": {
+            "vx": -0.25,
+            "vy": -5.08
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 267.2
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 70.0,
+          "y": 43.66,
+          "speed_mps": 5.11,
+          "velocity": {
+            "vx": 0.17,
+            "vy": -5.11
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 271.9
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 69.99,
+          "y": 43.5,
+          "speed_mps": 4.92,
+          "velocity": {
+            "vx": -0.18,
+            "vy": -4.91
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 267.9
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 69.98,
+          "y": 43.34,
+          "speed_mps": 4.81,
+          "velocity": {
+            "vx": -0.44,
+            "vy": -4.79
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 264.7
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 69.95,
+          "y": 43.16,
+          "speed_mps": 5.38,
+          "velocity": {
+            "vx": -0.71,
+            "vy": -5.34
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 262.5
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 69.94,
+          "y": 43.0,
+          "speed_mps": 4.88,
+          "velocity": {
+            "vx": -0.47,
+            "vy": -4.85
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 264.4
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 69.92,
+          "y": 42.82,
+          "speed_mps": 5.32,
+          "velocity": {
+            "vx": -0.52,
+            "vy": -5.3
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 264.4
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 69.9,
+          "y": 42.65,
+          "speed_mps": 5.06,
+          "velocity": {
+            "vx": -0.52,
+            "vy": -5.04
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 264.0
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 69.87,
+          "y": 42.48,
+          "speed_mps": 5.36,
+          "velocity": {
+            "vx": -0.97,
+            "vy": -5.28
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 259.6
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 69.85,
+          "y": 42.31,
+          "speed_mps": 5.04,
+          "velocity": {
+            "vx": -0.63,
+            "vy": -5.0
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 262.8
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 69.83,
+          "y": 42.15,
+          "speed_mps": 4.83,
+          "velocity": {
+            "vx": -0.5,
+            "vy": -4.81
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 264.1
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 69.82,
+          "y": 41.98,
+          "speed_mps": 4.98,
+          "velocity": {
+            "vx": -0.46,
+            "vy": -4.96
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 264.7
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 69.79,
+          "y": 41.81,
+          "speed_mps": 5.26,
+          "velocity": {
+            "vx": -0.83,
+            "vy": -5.19
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 260.9
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 69.77,
+          "y": 41.65,
+          "speed_mps": 4.94,
+          "velocity": {
+            "vx": -0.53,
+            "vy": -4.91
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 263.8
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 69.75,
+          "y": 41.48,
+          "speed_mps": 5.07,
+          "velocity": {
+            "vx": -0.59,
+            "vy": -5.03
+          },
+          "confidence": 0.95,
+          "interpolated": true,
+          "direction_deg": 263.3
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 69.75,
+          "y": 41.31,
+          "speed_mps": 4.98,
+          "velocity": {
+            "vx": -0.16,
+            "vy": -4.98
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 268.2
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 69.74,
+          "y": 41.14,
+          "speed_mps": 5.24,
+          "velocity": {
+            "vx": -0.06,
+            "vy": -5.24
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 269.3
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 69.73,
+          "y": 40.98,
+          "speed_mps": 4.93,
+          "velocity": {
+            "vx": -0.31,
+            "vy": -4.92
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 266.4
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 69.71,
+          "y": 40.81,
+          "speed_mps": 4.9,
+          "velocity": {
+            "vx": -0.6,
+            "vy": -4.87
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 262.9
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 69.68,
+          "y": 40.65,
+          "speed_mps": 5.07,
+          "velocity": {
+            "vx": -1.06,
+            "vy": -4.96
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 258.0
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 69.64,
+          "y": 40.49,
+          "speed_mps": 4.94,
+          "velocity": {
+            "vx": -1.2,
+            "vy": -4.79
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 255.9
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 69.6,
+          "y": 40.32,
+          "speed_mps": 5.07,
+          "velocity": {
+            "vx": -1.06,
+            "vy": -4.96
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 257.9
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 69.58,
+          "y": 40.15,
+          "speed_mps": 5.27,
+          "velocity": {
+            "vx": -0.72,
+            "vy": -5.22
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 262.2
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 69.56,
+          "y": 39.97,
+          "speed_mps": 5.36,
+          "velocity": {
+            "vx": -0.58,
+            "vy": -5.33
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 263.8
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 69.54,
+          "y": 39.8,
+          "speed_mps": 5.19,
+          "velocity": {
+            "vx": -0.52,
+            "vy": -5.16
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 264.2
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 69.54,
+          "y": 39.64,
+          "speed_mps": 4.84,
+          "velocity": {
+            "vx": -0.21,
+            "vy": -4.84
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 267.5
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 69.52,
+          "y": 39.46,
+          "speed_mps": 5.25,
+          "velocity": {
+            "vx": -0.41,
+            "vy": -5.23
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 265.6
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 69.5,
+          "y": 39.3,
+          "speed_mps": 4.87,
+          "velocity": {
+            "vx": -0.56,
+            "vy": -4.84
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 263.4
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 69.49,
+          "y": 39.12,
+          "speed_mps": 5.37,
+          "velocity": {
+            "vx": -0.43,
+            "vy": -5.35
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 265.4
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 69.48,
+          "y": 38.96,
+          "speed_mps": 4.85,
+          "velocity": {
+            "vx": -0.39,
+            "vy": -4.83
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 265.4
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "team_id": 2,
+      "jersey_number": 5,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 74.99,
+          "y": 33.92,
+          "speed_mps": 2.29,
+          "velocity": {
+            "vx": -0.23,
+            "vy": -2.28
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 264.3
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 74.98,
+          "y": 33.84,
+          "speed_mps": 2.68,
+          "velocity": {
+            "vx": -0.45,
+            "vy": -2.64
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 260.2
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 74.96,
+          "y": 33.75,
+          "speed_mps": 2.67,
+          "velocity": {
+            "vx": -0.42,
+            "vy": -2.64
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 261.0
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 74.95,
+          "y": 33.67,
+          "speed_mps": 2.26,
+          "velocity": {
+            "vx": -0.29,
+            "vy": -2.24
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 262.7
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 74.95,
+          "y": 33.59,
+          "speed_mps": 2.38,
+          "velocity": {
+            "vx": -0.2,
+            "vy": -2.37
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 265.3
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 74.95,
+          "y": 33.52,
+          "speed_mps": 2.21,
+          "velocity": {
+            "vx": -0.02,
+            "vy": -2.21
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 269.4
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 74.95,
+          "y": 33.44,
+          "speed_mps": 2.4,
+          "velocity": {
+            "vx": 0.03,
+            "vy": -2.39
+          },
+          "confidence": 0.83,
+          "interpolated": false,
+          "direction_deg": 270.8
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 74.95,
+          "y": 33.36,
+          "speed_mps": 2.3,
+          "velocity": {
+            "vx": -0.03,
+            "vy": -2.3
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 269.3
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 74.95,
+          "y": 33.29,
+          "speed_mps": 2.3,
+          "velocity": {
+            "vx": 0.11,
+            "vy": -2.3
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 272.8
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 74.95,
+          "y": 33.2,
+          "speed_mps": 2.67,
+          "velocity": {
+            "vx": 0.03,
+            "vy": -2.67
+          },
+          "confidence": 0.94,
+          "interpolated": false,
+          "direction_deg": 270.7
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 74.95,
+          "y": 33.12,
+          "speed_mps": 2.37,
+          "velocity": {
+            "vx": 0.05,
+            "vy": -2.37
+          },
+          "confidence": 0.87,
+          "interpolated": false,
+          "direction_deg": 271.2
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 74.95,
+          "y": 33.03,
+          "speed_mps": 2.68,
+          "velocity": {
+            "vx": -0.03,
+            "vy": -2.68
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 269.5
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 74.95,
+          "y": 32.94,
+          "speed_mps": 2.69,
+          "velocity": {
+            "vx": -0.02,
+            "vy": -2.69
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 269.6
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 74.95,
+          "y": 32.86,
+          "speed_mps": 2.35,
+          "velocity": {
+            "vx": 0.0,
+            "vy": -2.35
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 270.0
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 74.95,
+          "y": 32.78,
+          "speed_mps": 2.55,
+          "velocity": {
+            "vx": -0.06,
+            "vy": -2.55
+          },
+          "confidence": 0.91,
+          "interpolated": true,
+          "direction_deg": 268.6
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 74.95,
+          "y": 32.7,
+          "speed_mps": 2.22,
+          "velocity": {
+            "vx": 0.05,
+            "vy": -2.22
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 271.2
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 74.96,
+          "y": 32.62,
+          "speed_mps": 2.36,
+          "velocity": {
+            "vx": 0.23,
+            "vy": -2.35
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 275.5
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 74.96,
+          "y": 32.54,
+          "speed_mps": 2.68,
+          "velocity": {
+            "vx": 0.08,
+            "vy": -2.68
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 271.7
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 74.96,
+          "y": 32.46,
+          "speed_mps": 2.2,
+          "velocity": {
+            "vx": -0.03,
+            "vy": -2.19
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 269.1
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 74.96,
+          "y": 32.39,
+          "speed_mps": 2.16,
+          "velocity": {
+            "vx": -0.01,
+            "vy": -2.16
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 269.6
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 74.97,
+          "y": 32.31,
+          "speed_mps": 2.38,
+          "velocity": {
+            "vx": 0.16,
+            "vy": -2.37
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 273.8
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 74.98,
+          "y": 32.23,
+          "speed_mps": 2.4,
+          "velocity": {
+            "vx": 0.3,
+            "vy": -2.38
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 277.1
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 74.98,
+          "y": 32.16,
+          "speed_mps": 2.26,
+          "velocity": {
+            "vx": 0.28,
+            "vy": -2.25
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 277.2
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 75.0,
+          "y": 32.08,
+          "speed_mps": 2.25,
+          "velocity": {
+            "vx": 0.47,
+            "vy": -2.2
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 282.0
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 75.02,
+          "y": 32.0,
+          "speed_mps": 2.65,
+          "velocity": {
+            "vx": 0.5,
+            "vy": -2.61
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 280.8
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 75.04,
+          "y": 31.91,
+          "speed_mps": 2.62,
+          "velocity": {
+            "vx": 0.66,
+            "vy": -2.53
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 284.6
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 75.06,
+          "y": 31.84,
+          "speed_mps": 2.35,
+          "velocity": {
+            "vx": 0.71,
+            "vy": -2.24
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 287.5
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 75.09,
+          "y": 31.76,
+          "speed_mps": 2.59,
+          "velocity": {
+            "vx": 0.78,
+            "vy": -2.47
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 287.6
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 75.11,
+          "y": 31.68,
+          "speed_mps": 2.45,
+          "velocity": {
+            "vx": 0.66,
+            "vy": -2.36
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 285.6
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 75.13,
+          "y": 31.61,
+          "speed_mps": 2.19,
+          "velocity": {
+            "vx": 0.58,
+            "vy": -2.11
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 285.5
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "team_id": 2,
+      "jersey_number": 3,
+      "tracking": [
+        {
+          "frame": 1,
+          "time": 0.033,
+          "x": 64.97,
+          "y": 54.9,
+          "speed_mps": 3.23,
+          "velocity": {
+            "vx": -0.92,
+            "vy": -3.1
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 253.5
+        },
+        {
+          "frame": 2,
+          "time": 0.067,
+          "x": 64.94,
+          "y": 54.8,
+          "speed_mps": 3.09,
+          "velocity": {
+            "vx": -0.9,
+            "vy": -2.96
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 253.0
+        },
+        {
+          "frame": 3,
+          "time": 0.1,
+          "x": 64.91,
+          "y": 54.69,
+          "speed_mps": 3.24,
+          "velocity": {
+            "vx": -0.84,
+            "vy": -3.13
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 255.0
+        },
+        {
+          "frame": 4,
+          "time": 0.133,
+          "x": 64.89,
+          "y": 54.6,
+          "speed_mps": 2.93,
+          "velocity": {
+            "vx": -0.62,
+            "vy": -2.86
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 257.7
+        },
+        {
+          "frame": 5,
+          "time": 0.167,
+          "x": 64.87,
+          "y": 54.49,
+          "speed_mps": 3.39,
+          "velocity": {
+            "vx": -0.6,
+            "vy": -3.33
+          },
+          "confidence": 0.88,
+          "interpolated": false,
+          "direction_deg": 259.8
+        },
+        {
+          "frame": 6,
+          "time": 0.2,
+          "x": 64.85,
+          "y": 54.38,
+          "speed_mps": 3.39,
+          "velocity": {
+            "vx": -0.51,
+            "vy": -3.35
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 261.4
+        },
+        {
+          "frame": 7,
+          "time": 0.233,
+          "x": 64.84,
+          "y": 54.28,
+          "speed_mps": 2.92,
+          "velocity": {
+            "vx": -0.44,
+            "vy": -2.89
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 261.4
+        },
+        {
+          "frame": 8,
+          "time": 0.267,
+          "x": 64.82,
+          "y": 54.17,
+          "speed_mps": 3.42,
+          "velocity": {
+            "vx": -0.46,
+            "vy": -3.39
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 262.3
+        },
+        {
+          "frame": 9,
+          "time": 0.3,
+          "x": 64.81,
+          "y": 54.06,
+          "speed_mps": 3.22,
+          "velocity": {
+            "vx": -0.47,
+            "vy": -3.18
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 261.7
+        },
+        {
+          "frame": 10,
+          "time": 0.333,
+          "x": 64.8,
+          "y": 53.96,
+          "speed_mps": 3.15,
+          "velocity": {
+            "vx": -0.33,
+            "vy": -3.13
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 263.9
+        },
+        {
+          "frame": 11,
+          "time": 0.367,
+          "x": 64.78,
+          "y": 53.85,
+          "speed_mps": 3.18,
+          "velocity": {
+            "vx": -0.53,
+            "vy": -3.14
+          },
+          "confidence": 0.97,
+          "interpolated": false,
+          "direction_deg": 260.5
+        },
+        {
+          "frame": 12,
+          "time": 0.4,
+          "x": 64.76,
+          "y": 53.74,
+          "speed_mps": 3.32,
+          "velocity": {
+            "vx": -0.64,
+            "vy": -3.25
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 258.8
+        },
+        {
+          "frame": 13,
+          "time": 0.433,
+          "x": 64.74,
+          "y": 53.63,
+          "speed_mps": 3.41,
+          "velocity": {
+            "vx": -0.45,
+            "vy": -3.38
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 262.4
+        },
+        {
+          "frame": 14,
+          "time": 0.467,
+          "x": 64.73,
+          "y": 53.53,
+          "speed_mps": 3.09,
+          "velocity": {
+            "vx": -0.48,
+            "vy": -3.05
+          },
+          "confidence": 0.93,
+          "interpolated": false,
+          "direction_deg": 261.2
+        },
+        {
+          "frame": 15,
+          "time": 0.5,
+          "x": 64.71,
+          "y": 53.42,
+          "speed_mps": 3.42,
+          "velocity": {
+            "vx": -0.37,
+            "vy": -3.4
+          },
+          "confidence": 0.83,
+          "interpolated": true,
+          "direction_deg": 263.7
+        },
+        {
+          "frame": 16,
+          "time": 0.533,
+          "x": 64.69,
+          "y": 53.31,
+          "speed_mps": 3.28,
+          "velocity": {
+            "vx": -0.6,
+            "vy": -3.22
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 259.4
+        },
+        {
+          "frame": 17,
+          "time": 0.567,
+          "x": 64.68,
+          "y": 53.2,
+          "speed_mps": 3.35,
+          "velocity": {
+            "vx": -0.33,
+            "vy": -3.33
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 264.4
+        },
+        {
+          "frame": 18,
+          "time": 0.6,
+          "x": 64.67,
+          "y": 53.09,
+          "speed_mps": 3.28,
+          "velocity": {
+            "vx": -0.55,
+            "vy": -3.23
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 260.4
+        },
+        {
+          "frame": 19,
+          "time": 0.633,
+          "x": 64.65,
+          "y": 52.98,
+          "speed_mps": 3.32,
+          "velocity": {
+            "vx": -0.59,
+            "vy": -3.26
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 259.8
+        },
+        {
+          "frame": 20,
+          "time": 0.667,
+          "x": 64.62,
+          "y": 52.87,
+          "speed_mps": 3.38,
+          "velocity": {
+            "vx": -0.86,
+            "vy": -3.27
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 255.3
+        },
+        {
+          "frame": 21,
+          "time": 0.7,
+          "x": 64.59,
+          "y": 52.78,
+          "speed_mps": 2.99,
+          "velocity": {
+            "vx": -0.82,
+            "vy": -2.87
+          },
+          "confidence": 0.9,
+          "interpolated": false,
+          "direction_deg": 254.0
+        },
+        {
+          "frame": 22,
+          "time": 0.733,
+          "x": 64.56,
+          "y": 52.67,
+          "speed_mps": 3.38,
+          "velocity": {
+            "vx": -0.89,
+            "vy": -3.26
+          },
+          "confidence": 0.85,
+          "interpolated": false,
+          "direction_deg": 254.7
+        },
+        {
+          "frame": 23,
+          "time": 0.767,
+          "x": 64.52,
+          "y": 52.56,
+          "speed_mps": 3.42,
+          "velocity": {
+            "vx": -1.14,
+            "vy": -3.23
+          },
+          "confidence": 0.91,
+          "interpolated": false,
+          "direction_deg": 250.5
+        },
+        {
+          "frame": 24,
+          "time": 0.8,
+          "x": 64.48,
+          "y": 52.45,
+          "speed_mps": 3.45,
+          "velocity": {
+            "vx": -1.3,
+            "vy": -3.19
+          },
+          "confidence": 0.84,
+          "interpolated": false,
+          "direction_deg": 247.9
+        },
+        {
+          "frame": 25,
+          "time": 0.833,
+          "x": 64.44,
+          "y": 52.36,
+          "speed_mps": 3.05,
+          "velocity": {
+            "vx": -1.17,
+            "vy": -2.82
+          },
+          "confidence": 0.86,
+          "interpolated": false,
+          "direction_deg": 247.5
+        },
+        {
+          "frame": 26,
+          "time": 0.867,
+          "x": 64.39,
+          "y": 52.26,
+          "speed_mps": 3.38,
+          "velocity": {
+            "vx": -1.56,
+            "vy": -3.0
+          },
+          "confidence": 0.96,
+          "interpolated": false,
+          "direction_deg": 242.6
+        },
+        {
+          "frame": 27,
+          "time": 0.9,
+          "x": 64.34,
+          "y": 52.17,
+          "speed_mps": 2.99,
+          "velocity": {
+            "vx": -1.3,
+            "vy": -2.7
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 244.4
+        },
+        {
+          "frame": 28,
+          "time": 0.933,
+          "x": 64.29,
+          "y": 52.07,
+          "speed_mps": 3.25,
+          "velocity": {
+            "vx": -1.49,
+            "vy": -2.89
+          },
+          "confidence": 0.92,
+          "interpolated": false,
+          "direction_deg": 242.8
+        },
+        {
+          "frame": 29,
+          "time": 0.967,
+          "x": 64.25,
+          "y": 51.98,
+          "speed_mps": 3.05,
+          "velocity": {
+            "vx": -1.43,
+            "vy": -2.69
+          },
+          "confidence": 0.95,
+          "interpolated": false,
+          "direction_deg": 242.1
+        },
+        {
+          "frame": 30,
+          "time": 1.0,
+          "x": 64.19,
+          "y": 51.89,
+          "speed_mps": 3.13,
+          "velocity": {
+            "vx": -1.61,
+            "vy": -2.69
+          },
+          "confidence": 0.89,
+          "interpolated": false,
+          "direction_deg": 239.1
+        }
+      ]
+    }
+  ],
+  "ball": {
+    "tracking": [
+      {
+        "frame": 1,
+        "time": 0.033,
+        "x": 19.86,
+        "y": 30.17,
+        "confidence": 0.89,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 2,
+        "time": 0.067,
+        "x": 20.35,
+        "y": 30.15,
+        "confidence": 0.95,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 3,
+        "time": 0.1,
+        "x": 20.16,
+        "y": 30.26,
+        "confidence": 0.88,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 4,
+        "time": 0.133,
+        "x": 20.2,
+        "y": 30.68,
+        "confidence": 0.81,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 5,
+        "time": 0.167,
+        "x": 20.19,
+        "y": 30.66,
+        "confidence": 0.94,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 6,
+        "time": 0.2,
+        "x": 20.04,
+        "y": 30.97,
+        "confidence": 0.89,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 7,
+        "time": 0.233,
+        "x": 20.11,
+        "y": 31.0,
+        "confidence": 0.89,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 8,
+        "time": 0.267,
+        "x": 20.34,
+        "y": 31.18,
+        "confidence": 0.9,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 9,
+        "time": 0.3,
+        "x": 20.44,
+        "y": 31.27,
+        "confidence": 0.94,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 10,
+        "time": 0.333,
+        "x": 20.36,
+        "y": 31.22,
+        "confidence": 0.87,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 101,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 11,
+        "time": 0.367,
+        "x": 59.77,
+        "y": 30.52,
+        "confidence": 0.81,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 12,
+        "time": 0.4,
+        "x": 59.57,
+        "y": 30.39,
+        "confidence": 0.83,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 13,
+        "time": 0.433,
+        "x": 59.45,
+        "y": 30.11,
+        "confidence": 0.95,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 14,
+        "time": 0.467,
+        "x": 59.66,
+        "y": 30.19,
+        "confidence": 0.92,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 15,
+        "time": 0.5,
+        "x": 59.47,
+        "y": 29.98,
+        "confidence": 0.87,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 16,
+        "time": 0.533,
+        "x": 59.78,
+        "y": 29.8,
+        "confidence": 0.85,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 17,
+        "time": 0.567,
+        "x": 59.35,
+        "y": 29.79,
+        "confidence": 0.82,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 18,
+        "time": 0.6,
+        "x": 59.84,
+        "y": 29.59,
+        "confidence": 0.91,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 201,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 19,
+        "time": 0.633,
+        "x": 24.77,
+        "y": 23.95,
+        "confidence": 0.92,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 20,
+        "time": 0.667,
+        "x": 24.77,
+        "y": 23.95,
+        "confidence": 0.85,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 21,
+        "time": 0.7,
+        "x": 24.66,
+        "y": 23.58,
+        "confidence": 0.88,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 22,
+        "time": 0.733,
+        "x": 24.47,
+        "y": 24.16,
+        "confidence": 0.9,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 23,
+        "time": 0.767,
+        "x": 24.55,
+        "y": 24.44,
+        "confidence": 0.94,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 24,
+        "time": 0.8,
+        "x": 24.27,
+        "y": 24.28,
+        "confidence": 0.8,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 25,
+        "time": 0.833,
+        "x": 24.75,
+        "y": 24.67,
+        "confidence": 0.94,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 103,
+          "team_id": 1
+        }
+      },
+      {
+        "frame": 26,
+        "time": 0.867,
+        "x": 69.37,
+        "y": 39.38,
+        "confidence": 0.92,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 203,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 27,
+        "time": 0.9,
+        "x": 69.77,
+        "y": 39.34,
+        "confidence": 0.86,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 203,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 28,
+        "time": 0.933,
+        "x": 69.28,
+        "y": 39.57,
+        "confidence": 0.85,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 203,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 29,
+        "time": 0.967,
+        "x": 69.49,
+        "y": 38.88,
+        "confidence": 0.93,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 203,
+          "team_id": 2
+        }
+      },
+      {
+        "frame": 30,
+        "time": 1.0,
+        "x": 69.26,
+        "y": 38.93,
+        "confidence": 0.9,
+        "state": "in_play",
+        "possessed_by": {
+          "player_id": 203,
+          "team_id": 2
+        }
+      }
+    ]
+  }
+}

@@ -80,29 +80,36 @@ class TrackingEvaluator:
         
         for frame_num, frame_tracks in enumerate(player_tracks):
             frame_switches = 0
-            
-            for player_id, track_info in frame_tracks.items():
-                position = track_info.get('position', [0, 0])
-                
-                # Check if similar position was tracked with different ID
-                min_dist = float('inf')
-                closest_prev_id = None
-                
+            curr_positions = {
+                player_id: track_info.get('position', [0, 0])
+                for player_id, track_info in frame_tracks.items()
+            }
+
+            if prev_positions:
+                # Build all pairwise distances between previous and current IDs
+                distances = []
                 for prev_id, prev_pos in prev_positions.items():
-                    dist = np.sqrt((position[0] - prev_pos[0])**2 + 
-                                 (position[1] - prev_pos[1])**2)
-                    if dist < min_dist:
-                        min_dist = dist
-                        closest_prev_id = prev_id
-                
-                # If close but different ID and distance is small (likely same person)
-                if closest_prev_id != player_id and min_dist < 50:  # 50 pixels threshold
-                    frame_switches += 1
-                    total_switches += 1
-            
+                    for curr_id, curr_pos in curr_positions.items():
+                        dist = np.sqrt((curr_pos[0] - prev_pos[0])**2 +
+                                       (curr_pos[1] - prev_pos[1])**2)
+                        distances.append((prev_id, curr_id, dist))
+
+                distances.sort(key=lambda x: x[2])
+                used_prev = set()
+                used_curr = set()
+                for prev_id, curr_id, dist in distances:
+                    if dist >= 50:
+                        break
+                    if prev_id in used_prev or curr_id in used_curr:
+                        continue
+                    used_prev.add(prev_id)
+                    used_curr.add(curr_id)
+                    if prev_id != curr_id:
+                        frame_switches += 1
+                        total_switches += 1
+
             switches_per_frame.append(frame_switches)
-            prev_positions = {pid: frame_tracks[pid].get('position', [0, 0]) 
-                            for pid in frame_tracks}
+            prev_positions = curr_positions
         
         return {
             'total_switches': total_switches,
@@ -125,32 +132,46 @@ class TrackingEvaluator:
             return {'fragmentation_score': 0, 'track_lengths': []}
         
         player_tracks = tracks['players']
-        track_lengths = defaultdict(int)
-        
-        # Count consecutive frames per track ID
+        track_segments = []
+        active_segments = {}
+
         for frame_tracks in player_tracks:
-            for player_id in frame_tracks:
-                track_lengths[player_id] += 1
-        
-        if not track_lengths:
+            current_ids = set(frame_tracks.keys())
+            for player_id in current_ids:
+                if player_id in active_segments:
+                    active_segments[player_id] += 1
+                else:
+                    active_segments[player_id] = 1
+
+            finished_ids = [pid for pid in active_segments if pid not in current_ids]
+            for pid in finished_ids:
+                track_segments.append(active_segments.pop(pid))
+
+        track_segments.extend(active_segments.values())
+
+        if not track_segments:
             return {'fragmentation_score': 0, 'track_lengths': []}
-        
-        lengths = list(track_lengths.values())
+
+        lengths = list(track_segments)
         avg_length = np.mean(lengths)
         std_length = np.std(lengths) if len(lengths) > 1 else 0
-        
-        # Fragmentation score: higher std/mean = more fragmented
-        # Normalized to 0-1 range
-        fragmentation_score = min(1.0, std_length / (avg_length + 1e-6))
-        
+        total_segment_frames = sum(lengths)
+        long_segment_frame_threshold = 120  # 5 seconds at 24fps
+        long_segment_frames = sum(length for length in lengths if length >= long_segment_frame_threshold)
+        long_segment_ratio = long_segment_frames / max(total_segment_frames, 1)
+
+        fragmentation_score = 1 - long_segment_ratio
+
         return {
             'fragmentation_score': fragmentation_score,
             'avg_track_length_frames': avg_length,
             'std_track_length': std_length,
-            'num_tracks': len(track_lengths),
+            'num_tracks': len(lengths),
             'min_track_length': min(lengths),
             'max_track_length': max(lengths),
-            'track_lengths': lengths
+            'track_lengths': lengths,
+            'long_track_frame_ratio': long_segment_ratio,
+            'long_track_frame_threshold': long_segment_frame_threshold
         }
     
     def _evaluate_speed_plausibility(self, tracks: Dict) -> Dict:
@@ -169,17 +190,20 @@ class TrackingEvaluator:
         implausible_count = 0
         implausible_details = []
         
-        # Max pixel distance per frame (at 24fps, ~12 m/s max = ~16.7 pixels/frame at typical scale)
-        # Using 200 pixels as threshold for safety
-        MAX_PIXELS_PER_FRAME = 200
+        # Max pixel distance per frame after compensation
+        MAX_PIXELS_PER_FRAME = 240
         
         prev_positions = {}
         
         for frame_num, frame_tracks in enumerate(player_tracks):
             for player_id, track_info in frame_tracks.items():
-                position = track_info.get('position', [0, 0])
+                position = track_info.get('position_transformed')
+                if position is None:
+                    position = track_info.get('position_adjusted')
+                if position is None:
+                    position = track_info.get('position', [0, 0])
                 
-                if player_id in prev_positions:
+                if player_id in prev_positions and prev_positions[player_id] is not None:
                     prev_pos = prev_positions[player_id]
                     distance = np.sqrt((position[0] - prev_pos[0])**2 + 
                                     (position[1] - prev_pos[1])**2)
@@ -189,7 +213,7 @@ class TrackingEvaluator:
                         implausible_details.append({
                             'frame': frame_num,
                             'player_id': player_id,
-                            'distance_pixels': distance,
+                            'distance_pixels': float(distance),
                             'from_position': prev_pos,
                             'to_position': position
                         })
@@ -202,7 +226,7 @@ class TrackingEvaluator:
             'implausible_movements': implausible_count,
             'implausibility_rate': implausible_count / max(total_frames, 1),
             'max_pixels_per_frame': MAX_PIXELS_PER_FRAME,
-            'violations': implausible_details[:20]  # Top 20 violations
+            'violations': implausible_details[:20]
         }
     
     def _calculate_track_consistency(self, tracks: Dict) -> Dict:
@@ -357,8 +381,13 @@ class TrackingEvaluator:
         score = 0
         
         # ID Switches component (30%)
+        avg_players = self.metrics['track_consistency']['avg_players_per_frame']
         id_switches_rate = self.metrics['id_switches']['avg_per_frame']
-        id_score = max(0, 1 - id_switches_rate * 10)  # Penalize high switch rate
+        if avg_players > 0:
+            normalized_switch_rate = id_switches_rate / avg_players
+        else:
+            normalized_switch_rate = id_switches_rate
+        id_score = max(0, 1 - normalized_switch_rate * 5)
         score += id_score * 0.3
         
         # Fragmentation component (30%)

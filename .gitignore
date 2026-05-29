@@ -10,6 +10,12 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.mp4
+*.pkl
+*.png
+*.jpg
+*.json
 
 # (Optional) Ignore stub files if not needed
 stubs/
+chunk_stubs/

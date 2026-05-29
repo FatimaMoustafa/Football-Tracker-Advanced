@@ -1,6 +1,6 @@
 {
   "video_processing": {
-    "chunk_duration_seconds": 60,
+    "chunk_duration_seconds": 30,
     "fps": 24,
     "codec": "libx264",
     "quality": "high"
