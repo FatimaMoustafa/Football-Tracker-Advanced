@@ -1,21 +1,33 @@
-*__pycahce__*
-*.pycinput_videos/ 
-output_videos/ 
-models/ 
-venv39/ 
-venv39_new/ 
-
-# Ignore Python cache and compiled files
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Virtual environments
+venv/
+venv39/
+venv39_new/
+
+# Models / large files
+models/
+
+# Videos & outputs
+demo_output/
+output_videos/
 *.mp4
+
+# Data files
 *.pkl
+
+# Images (outputs فقط)
 *.png
 *.jpg
-*.json
 
-# (Optional) Ignore stub files if not needed
+# Optional folders
 stubs/
 chunk_stubs/
+
+# OS files
+.DS_Store
+Thumbs.db
