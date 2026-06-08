@@ -10,6 +10,14 @@ from camera_movement_estimator import CameraMovementEstimator
 from geometry.homography import load_or_pick_points, build_homography, pixel_to_meters
 from speed_and_distance_estimator import SpeedAndDistance_Estimator
 from data.json_extractor import export_match_data
+from visualizations.heatmap import heatmap_by_team, heatmap_for_team
+from visualizations.pass_networks import pass_network
+from visualizations.json_extractor import (
+    assign_ball_touches,
+    determine_ball_control,
+    detect_passes,
+    build_players,
+)
 
 
 def main():
@@ -109,6 +117,20 @@ def main():
     counter_path.write_text(str(match_num))
     match_id = f'match_{match_num:03d}'
     export_match_data(tracks, fps=30, match_id=match_id)
+
+    # Generate heatmap and pass network visualizations
+    assign_ball_touches(tracks)
+    determine_ball_control(tracks)
+    passes, turnovers = detect_passes(tracks)
+    players = build_players(tracks, passes, turnovers)
+
+    heatmap_by_team(players, team=1)
+    heatmap_by_team(players, team=2)
+    heatmap_for_team(players, team=1)
+    heatmap_for_team(players, team=2)
+
+    pass_network(players, passes, team=1)
+    pass_network(players, passes, team=2)
 
 if __name__ == '__main__':
     main()
