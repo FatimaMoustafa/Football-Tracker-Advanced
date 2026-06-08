@@ -4,3 +4,5 @@ numpy
 ultralytics
 scikit-learn
 scikit-image
+supervision
+boxmot

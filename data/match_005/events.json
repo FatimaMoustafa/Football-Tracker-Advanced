@@ -1,0 +1,39 @@
+{
+  "match_id": "match_005",
+  "total_events": 3,
+  "events": [
+    {
+      "id": "event_0001",
+      "type": "pass",
+      "frame": 11,
+      "time": 0.37,
+      "players": {
+        "primary": 1,
+        "secondary": 16
+      },
+      "confidence": 0.78
+    },
+    {
+      "id": "event_0002",
+      "type": "pass",
+      "frame": 91,
+      "time": 3.03,
+      "players": {
+        "primary": 2,
+        "secondary": 1
+      },
+      "confidence": 0.78
+    },
+    {
+      "id": "event_0003",
+      "type": "turnover",
+      "frame": 157,
+      "time": 5.23,
+      "players": {
+        "primary": 104,
+        "secondary": 2
+      },
+      "confidence": 0.78
+    }
+  ]
+}
