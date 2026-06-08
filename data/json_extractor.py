@@ -31,7 +31,7 @@ def _frame_to_time(frame: int, fps: float) -> float:
 
 
 def _safe_pos(track: dict[str, Any]) -> tuple[float, float] | None:
-    pos = track.get("transformed_position")
+    pos = track.get("position_transformed") or track.get("transformed_position")
     if pos is None:
         return None
     if isinstance(pos, (list, tuple)) and len(pos) == 2:
