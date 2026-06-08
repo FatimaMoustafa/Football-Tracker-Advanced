@@ -167,24 +167,31 @@ def validate_transform(H, test_pts):
 
 
 
-frame = cv2.imread('4.png')
-frame = cv2.resize(frame, (1280, 720))
-pixel_pts, world_pts = load_or_pick_points(
-    frame,
-    save_path='calibrations/wide_01.json'
-)
+if __name__ == '__main__':
+    frame = cv2.imread('4.png')
+    if frame is None:
+        raise FileNotFoundError(
+            "geometry/homography.py demo requires '4.png' in the current working directory "
+            "or a valid image path."
+        )
 
-print(pixel_pts)        # shape (4,2), float32
-print(pixel_pts.dtype)  # must print float32
-print(world_pts)        # the 4 real-world meter coordinates
-H = build_homography(pixel_pts, world_pts)
-x_m, y_m = pixel_to_meters(pixel_pts[0][0], pixel_pts[0][1], H)
-print(f"Pixel {pixel_pts[0]} → World ({x_m:.2f}, {y_m:.2f}) m")
+    frame = cv2.resize(frame, (1280, 720))
+    pixel_pts, world_pts = load_or_pick_points(
+        frame,
+        save_path='calibrations/wide_01.json'
+    )
 
-test_pts = [
-    (pixel_pts[0][0], pixel_pts[0][1], world_pts[0][0], world_pts[0][1]),
-    (pixel_pts[1][0], pixel_pts[1][1], world_pts[1][0], world_pts[1][1]),
-    (pixel_pts[2][0], pixel_pts[2][1], world_pts[2][0], world_pts[2][1]),
-    (pixel_pts[3][0], pixel_pts[3][1], world_pts[3][0], world_pts[3][1]),
-]
-validate_transform(H, test_pts)
+    print(pixel_pts)        # shape (4,2), float32
+    print(pixel_pts.dtype)  # must print float32
+    print(world_pts)        # the 4 real-world meter coordinates
+    H = build_homography(pixel_pts, world_pts)
+    x_m, y_m = pixel_to_meters(pixel_pts[0][0], pixel_pts[0][1], H)
+    print(f"Pixel {pixel_pts[0]} → World ({x_m:.2f}, {y_m:.2f}) m")
+
+    test_pts = [
+        (pixel_pts[0][0], pixel_pts[0][1], world_pts[0][0], world_pts[0][1]),
+        (pixel_pts[1][0], pixel_pts[1][1], world_pts[1][0], world_pts[1][1]),
+        (pixel_pts[2][0], pixel_pts[2][1], world_pts[2][0], world_pts[2][1]),
+        (pixel_pts[3][0], pixel_pts[3][1], world_pts[3][0], world_pts[3][1]),
+    ]
+    validate_transform(H, test_pts)
