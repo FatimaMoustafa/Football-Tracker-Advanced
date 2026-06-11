@@ -7,6 +7,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+_LOW_DISTANCE_M      = 50.0
+_HIGH_MAX_SPEED_MPS  = 8.0
+_LOW_AVG_SPEED_MPS   = 1.5
+_LOW_POSSESSION_PCT  = 40.0
+_HIGH_TURNOVER_RATIO = 0.5
+
 
 @dataclass
 class PitchConfig:
@@ -20,9 +26,6 @@ class ExporterConfig:
     match_id: str = "match_001"
     pitch: PitchConfig = field(default_factory=PitchConfig)
     team_names: dict[int, str] = field(default_factory=lambda: {1: "Team A", 2: "Team B"})
-    tackle_distance_m: float = 1.5
-    foul_distance_m: float = 1.0
-    foul_speed_drop_threshold: float = 2.0
     ball_state_possession_radius: float = 2.0
 
 
@@ -39,10 +42,6 @@ def _safe_pos(track: dict[str, Any]) -> tuple[float, float] | None:
         if x is not None and y is not None:
             return round(float(x), 3), round(float(y), 3)
     return None
-
-
-def _dist(a: tuple[float, float], b: tuple[float, float]) -> float:
-    return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
 class MatchIQExporter:
@@ -66,13 +65,16 @@ class MatchIQExporter:
         self._fps = self.config.fps
 
     def export_all(self) -> dict[str, Path]:
+        stats_data  = self._build_stats()
+        events_data = self._build_events()
         paths = {
             "raw_tracking":        self._write("raw_tracking.json", self._build_raw_tracking()),
             "processed_positions": self._write("processed_positions.json", self._build_processed_positions()),
-            "events":              self._write("events.json", self._build_events()),
-            "stats":               self._write("stats.json", self._build_stats()),
+            "events":              self._write("events.json", events_data),
+            "stats":               self._write("stats.json", stats_data),
+            "recommendations":     self._write("recommendations.json", self._build_recommendations(stats_data, events_data)),
         }
-        print(f"[MatchIQExporter] Exported 4 files to '{self.output_dir}/'")
+        print(f"[MatchIQExporter] Exported 5 files to '{self.output_dir}/'")
         return paths
 
     def _build_raw_tracking(self) -> dict[str, Any]:
@@ -265,106 +267,54 @@ class MatchIQExporter:
             return float(track.get("speed", 0.0) or 0.0)
 
         prev_possessor: int | None = None
+        confirmed_possessor: int | None = None
+        candidate_possessor: int | None = None
+        candidate_frames: int = 0
+        DEBOUNCE_FRAMES: int = 12
 
         for frame_num, frame_data in enumerate(player_tracks):
             if frame_num == 0:
                 prev_possessor = possession_map.get(0, {}).get("player_id")
+                confirmed_possessor = prev_possessor
                 continue
 
             t = _frame_to_time(frame_num, self._fps)
             current_possession = possession_map.get(frame_num)
             current_possessor = current_possession["player_id"] if current_possession else None
 
-            if (
-                prev_possessor is not None
-                and current_possessor is not None
-                and current_possessor != prev_possessor
-            ):
-                old_team = possession_map.get(frame_num - 1, {}).get("team_id", 0)
-                new_team = current_possession.get("team_id", 0) if current_possession else 0
-                pos = get_player_pos(frame_data, current_possessor)
-                event_type = "turnover" if old_team != new_team else "pass"
-                event_counter += 1
-                ev: dict[str, Any] = {
-                    "id":         f"event_{event_counter:04d}",
-                    "type":       event_type,
-                    "frame":      frame_num,
-                    "time":       t,
-                    "players": {
-                        "primary":   current_possessor,
-                        "secondary": prev_possessor,
-                    },
-                    "confidence": 0.78,
-                }
-                if pos:
-                    ev["location"] = {"x": pos[0], "y": pos[1]}
-                events.append(ev)
+            if current_possessor != confirmed_possessor:
+                if current_possessor == candidate_possessor:
+                    candidate_frames += 1
+                else:
+                    candidate_possessor = current_possessor
+                    candidate_frames = 1
 
-            player_ids = list(frame_data.keys())
-            for i, pid_a in enumerate(player_ids):
-                pos_a = get_player_pos(frame_data, pid_a)
-                if pos_a is None:
-                    continue
-                for pid_b in player_ids[i + 1:]:
-                    pos_b = get_player_pos(frame_data, pid_b)
-                    if pos_b is None:
-                        continue
-
-                    d = _dist(pos_a, pos_b)
-
-                    if d < cfg.tackle_distance_m and (
-                        prev_possessor in (pid_a, pid_b)
-                        and current_possessor in (pid_a, pid_b)
-                        and prev_possessor != current_possessor
-                    ):
-                        winner = current_possessor
-                        loser = prev_possessor
-                        mid_x = round((pos_a[0] + pos_b[0]) / 2, 3)
-                        mid_y = round((pos_a[1] + pos_b[1]) / 2, 3)
-                        event_counter += 1
-                        events.append({
-                            "id":       f"event_{event_counter:04d}",
-                            "type":     "tackle",
-                            "frame":    frame_num,
-                            "time":     t,
-                            "location": {"x": mid_x, "y": mid_y},
-                            "players":  {"winner": winner, "loser": loser},
-                            "confidence": round(max(0.5, 0.9 - d / cfg.tackle_distance_m * 0.3), 2),
-                        })
-
-                    elif d < cfg.foul_distance_m:
-                        speed_a = get_player_speed(frame_data, pid_a)
-                        speed_b = get_player_speed(frame_data, pid_b)
-
-                        if frame_num > 0:
-                            prev_frame_data = player_tracks[frame_num - 1]
-                            prev_speed_a = get_player_speed(prev_frame_data, pid_a)
-                            prev_speed_b = get_player_speed(prev_frame_data, pid_b)
-                            drop_a = prev_speed_a - speed_a
-                            drop_b = prev_speed_b - speed_b
-
-                            attacker, defender, drop = None, None, 0.0
-                            if drop_b > cfg.foul_speed_drop_threshold:
-                                attacker, defender, drop = pid_a, pid_b, drop_b
-                            elif drop_a > cfg.foul_speed_drop_threshold:
-                                attacker, defender, drop = pid_b, pid_a, drop_a
-
-                            if attacker is not None:
-                                mid_x = round((pos_a[0] + pos_b[0]) / 2, 3)
-                                mid_y = round((pos_a[1] + pos_b[1]) / 2, 3)
-                                event_counter += 1
-                                events.append({
-                                    "id":       f"event_{event_counter:04d}",
-                                    "type":     "possible_foul",
-                                    "frame":    frame_num,
-                                    "time":     t,
-                                    "location": {"x": mid_x, "y": mid_y},
-                                    "players":  {"attacker": attacker, "defender": defender},
-                                    "confidence": round(
-                                        min(0.85, 0.4 + (drop / (cfg.foul_speed_drop_threshold * 3))),
-                                        2,
-                                    ),
-                                })
+                if candidate_frames >= DEBOUNCE_FRAMES and candidate_possessor is not None:
+                    old_team = possession_map.get(frame_num - candidate_frames, {}).get("team_id", 0)
+                    new_team = current_possession.get("team_id", 0) if current_possession else 0
+                    pos = get_player_pos(frame_data, candidate_possessor)
+                    event_type = "turnover" if old_team != new_team else "pass"
+                    event_counter += 1
+                    ev: dict[str, Any] = {
+                        "id":         f"event_{event_counter:04d}",
+                        "type":       event_type,
+                        "frame":      frame_num,
+                        "time":       t,
+                        "players": {
+                            "primary":   candidate_possessor,
+                            "secondary": confirmed_possessor,
+                        },
+                        "confidence": 0.78,
+                    }
+                    if pos:
+                        ev["location"] = {"x": pos[0], "y": pos[1]}
+                    events.append(ev)
+                    confirmed_possessor = candidate_possessor
+                    candidate_possessor = None
+                    candidate_frames = 0
+            else:
+                candidate_possessor = None
+                candidate_frames = 0
 
             prev_possessor = current_possessor
 
@@ -465,6 +415,177 @@ class MatchIQExporter:
                 result[frame_num] = last
 
         return result
+
+
+    def _build_recommendations(
+        self,
+        stats_data: dict[str, Any],
+        events_data: dict[str, Any],
+    ) -> dict[str, Any]:
+        player_passes:    dict[int, int] = defaultdict(int)
+        player_turnovers: dict[int, int] = defaultdict(int)
+
+        for event in events_data.get("events", []):
+            primary   = event["players"].get("primary")
+            secondary = event["players"].get("secondary")
+            if event["type"] == "pass":
+                if primary   is not None: player_passes[primary]       += 1
+                if secondary is not None: player_passes[secondary]     += 1
+            elif event["type"] == "turnover":
+                if primary   is not None: player_turnovers[primary]    += 1
+                if secondary is not None: player_turnovers[secondary]  += 1
+
+        players_raw = stats_data.get("players", [])
+        teams_raw   = stats_data.get("teams", [])
+
+        team_distances: dict[int, list[float]] = defaultdict(list)
+        for p in players_raw:
+            team_distances[p["team_id"]].append(p["distance_covered_m"])
+        team_avg_dist: dict[int, float] = {
+            tid: sum(dists) / len(dists)
+            for tid, dists in team_distances.items()
+        }
+
+        player_recs: list[dict[str, Any]] = []
+        for p in players_raw:
+            pid     = p["id"]
+            tid     = p["team_id"]
+            dist    = p["distance_covered_m"]
+            avg_spd = p["avg_speed_mps"]
+            max_spd = p["max_speed_mps"]
+            passes  = player_passes[pid]
+            turnovers = player_turnovers[pid]
+            involvement = passes + turnovers
+            t_avg   = team_avg_dist.get(tid, _LOW_DISTANCE_M)
+
+            if dist < _LOW_DISTANCE_M and dist < t_avg * 0.5:
+                player_recs.append({
+                    "player_id": pid,
+                    "team_id":   tid,
+                    "category":  "physical",
+                    "severity":  "high",
+                    "metric":    "distance_covered_m",
+                    "value":     dist,
+                    "message":   (
+                        f"Player {pid} covered only {dist:.1f}m, well below "
+                        f"the team average of {t_avg:.1f}m. Review workload or positioning."
+                    ),
+                })
+
+            if avg_spd < _LOW_AVG_SPEED_MPS and dist > 5.0:
+                player_recs.append({
+                    "player_id": pid,
+                    "team_id":   tid,
+                    "category":  "physical",
+                    "severity":  "medium",
+                    "metric":    "avg_speed_mps",
+                    "value":     avg_spd,
+                    "message":   (
+                        f"Player {pid} averaged {avg_spd:.2f} m/s. "
+                        f"Fitness or tactical role may need review."
+                    ),
+                })
+
+            if max_spd >= _HIGH_MAX_SPEED_MPS:
+                player_recs.append({
+                    "player_id": pid,
+                    "team_id":   tid,
+                    "category":  "physical",
+                    "severity":  "positive",
+                    "metric":    "max_speed_mps",
+                    "value":     max_spd,
+                    "message":   (
+                        f"Player {pid} reached {max_spd:.2f} m/s. "
+                        f"Leverage in transitions and counter-attacks."
+                    ),
+                })
+
+            if involvement >= 2 and turnovers / involvement >= _HIGH_TURNOVER_RATIO:
+                player_recs.append({
+                    "player_id": pid,
+                    "team_id":   tid,
+                    "category":  "tactical",
+                    "severity":  "high",
+                    "metric":    "turnover_ratio",
+                    "value":     round(turnovers / involvement, 2),
+                    "message":   (
+                        f"Player {pid} lost possession in {turnovers} of "
+                        f"{involvement} involvements. Focus on decision-making under pressure."
+                    ),
+                })
+
+            if involvement == 0 and dist > 20.0:
+                player_recs.append({
+                    "player_id": pid,
+                    "team_id":   tid,
+                    "category":  "tactical",
+                    "severity":  "medium",
+                    "metric":    "ball_involvement",
+                    "value":     0,
+                    "message":   (
+                        f"Player {pid} had no ball involvement despite covering {dist:.1f}m. "
+                        f"Review movement and positioning patterns."
+                    ),
+                })
+
+        team_recs: list[dict[str, Any]] = []
+        for t in teams_raw:
+            tid  = t["id"]
+            name = t["name"]
+            pct  = t["possession_percent"]
+
+            if pct < _LOW_POSSESSION_PCT:
+                team_recs.append({
+                    "team_id":   tid,
+                    "team_name": name,
+                    "category":  "tactical",
+                    "severity":  "high",
+                    "metric":    "possession_percent",
+                    "value":     pct,
+                    "message":   (
+                        f"{name} had only {pct:.1f}% possession. "
+                        f"Work on ball retention and pressing triggers."
+                    ),
+                })
+
+            team_passes    = sum(player_passes[p["id"]]    for p in players_raw if p["team_id"] == tid)
+            team_turnovers = sum(player_turnovers[p["id"]] for p in players_raw if p["team_id"] == tid)
+            total = team_passes + team_turnovers
+            if total > 0 and team_turnovers / total >= _HIGH_TURNOVER_RATIO:
+                team_recs.append({
+                    "team_id":   tid,
+                    "team_name": name,
+                    "category":  "tactical",
+                    "severity":  "high",
+                    "metric":    "team_turnover_ratio",
+                    "value":     round(team_turnovers / total, 2),
+                    "message":   (
+                        f"{name} lost the ball on {team_turnovers} of {total} possessions. "
+                        f"Prioritise short passing sequences to reduce risk."
+                    ),
+                })
+
+            avg_dist = team_avg_dist.get(tid, 0.0)
+            if avg_dist < _LOW_DISTANCE_M:
+                team_recs.append({
+                    "team_id":   tid,
+                    "team_name": name,
+                    "category":  "physical",
+                    "severity":  "medium",
+                    "metric":    "avg_distance_m",
+                    "value":     round(avg_dist, 2),
+                    "message":   (
+                        f"{name} averaged only {avg_dist:.1f}m per player. "
+                        f"Consider fitness conditioning or a higher defensive line."
+                    ),
+                })
+
+        return {
+            "match_id":               self.config.match_id,
+            "total_recommendations":  len(player_recs) + len(team_recs),
+            "player_recommendations": player_recs,
+            "team_recommendations":   team_recs,
+        }
 
     def _write(self, filename: str, data: dict[str, Any]) -> Path:
         path = self.output_dir / filename

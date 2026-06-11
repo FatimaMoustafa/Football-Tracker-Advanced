@@ -131,12 +131,12 @@ class ChunkedPipeline:
                     # Read chunk frames
                     cap = cv2.VideoCapture(chunk_path)
                     chunk_frames = []
-                while True:
-                    ret, frame = cap.read()
-                    if not ret:
-                        break
-                    chunk_frames.append(frame)
-                cap.release()
+                    while True:
+                        ret, frame = cap.read()
+                        if not ret:
+                            break
+                        chunk_frames.append(frame)
+                    cap.release()
                 
                 if not chunk_frames:
                     logger.warning(f"No frames in chunk {i}")

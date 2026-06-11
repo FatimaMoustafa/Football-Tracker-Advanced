@@ -1,9 +1,9 @@
 """
-Video Chunking Pipeline using FFmpeg
+Video Chunking Pipeline using OpenCV
 Splits large videos into 60s chunks, processes each independently, merges results
 """
 
-import subprocess
+import cv2
 import os
 import json
 import shutil
@@ -17,133 +17,110 @@ logger = logging.getLogger(__name__)
 
 
 class VideoChunker:
-    """Handles video splitting with FFmpeg"""
-    
+    """Handles video splitting with OpenCV"""
+
     def __init__(self, chunk_duration: int = 60):
         """
         Initialize video chunker
-        
+
         Args:
             chunk_duration: Duration of each chunk in seconds (default 60s)
         """
         self.chunk_duration = chunk_duration
-        self.ffmpeg_cmd = self._check_ffmpeg()
-    
-    def _check_ffmpeg(self) -> str:
-        """Check if FFmpeg is installed and return command"""
-        try:
-            result = subprocess.run(['ffmpeg', '-version'], 
-                                  capture_output=True, 
-                                  timeout=5)
-            if result.returncode == 0:
-                return 'ffmpeg'
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            pass
-        
-        # Try with .exe on Windows
-        try:
-            result = subprocess.run(['ffmpeg.exe', '-version'], 
-                                  capture_output=True, 
-                                  timeout=5)
-            if result.returncode == 0:
-                return 'ffmpeg.exe'
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            pass
-        
-        raise RuntimeError("FFmpeg not found. Please install FFmpeg and add to PATH")
-    
+
     def split_video(self, input_path: str, output_dir: str) -> List[str]:
         """
-        Split video into chunks using FFmpeg
-        
+        Split video into chunks using OpenCV.
+
+        Reads the source video frame-by-frame and writes each chunk to a
+        separate .mp4 file using the same codec/resolution as the source.
+
         Args:
             input_path: Path to input video
             output_dir: Directory to save chunks
-            
+
         Returns:
             List of chunk file paths
         """
         Path(output_dir).mkdir(parents=True, exist_ok=True)
-        
-        # Get video info
-        duration = self._get_video_duration(input_path)
-        logger.info(f"Video duration: {duration:.2f}s")
-        
-        num_chunks = math.ceil(duration / self.chunk_duration)
-        if num_chunks <= 0:
-            num_chunks = 1
-        logger.info(f"Splitting into {num_chunks} chunks of {self.chunk_duration}s")
-        
+
+        cap = cv2.VideoCapture(input_path)
+        if not cap.isOpened():
+            raise RuntimeError(f"Cannot open video: {input_path}")
+
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+
+        if fps <= 0:
+            cap.release()
+            raise RuntimeError(f"Cannot determine FPS for {input_path}")
+
+        duration = frame_count / fps
+        frames_per_chunk = int(fps * self.chunk_duration)
+        num_chunks = math.ceil(frame_count / frames_per_chunk)
+
+        logger.info(f"Video duration: {duration:.2f}s  |  FPS: {fps:.2f}  |  "
+                    f"Resolution: {width}x{height}")
+        logger.info(f"Splitting into {num_chunks} chunks of {self.chunk_duration}s "
+                    f"({frames_per_chunk} frames each)")
+
         chunk_paths = []
-        
-        for i in range(num_chunks):
-            start_time = i * self.chunk_duration
-            chunk_path = os.path.join(output_dir, f"chunk_{i:04d}.mp4")
-            
-            # FFmpeg command to extract chunk
-            cmd = [
-                self.ffmpeg_cmd,
-                '-i', input_path,
-                '-ss', str(start_time),
-                '-t', str(self.chunk_duration),
-                '-c:v', 'libx264',
-                '-c:a', 'aac',
-                '-y',  # Overwrite output
-                chunk_path
-            ]
-            
-            logger.info(f"Creating chunk {i+1}/{num_chunks}: {chunk_path}")
-            
-            try:
-                result = subprocess.run(cmd, 
-                                      capture_output=True, 
-                                      timeout=300,
-                                      text=True)
-                
-                if result.returncode != 0:
-                    logger.error(f"FFmpeg error: {result.stderr}")
-                    raise RuntimeError(f"Failed to create chunk {i}: {result.stderr}")
-                
-                if os.path.exists(chunk_path):
-                    chunk_paths.append(chunk_path)
-                    logger.info(f"✓ Chunk {i+1} created successfully")
-                    
-            except subprocess.TimeoutExpired:
-                raise RuntimeError(f"Chunk {i} processing timeout")
-        
+        writer: cv2.VideoWriter | None = None
+        chunk_idx = -1
+        current_chunk_frames = 0
+
+        for frame_num in range(frame_count):
+            ret, frame = cap.read()
+            if not ret:
+                break
+
+            # Start a new chunk when needed
+            if frame_num % frames_per_chunk == 0:
+                # Close the previous writer
+                if writer is not None:
+                    writer.release()
+                    logger.info(f"✓ Chunk {chunk_idx + 1} created successfully")
+
+                chunk_idx += 1
+                chunk_path = os.path.join(output_dir, f"chunk_{chunk_idx:04d}.mp4")
+                writer = cv2.VideoWriter(chunk_path, fourcc, fps, (width, height))
+
+                if not writer.isOpened():
+                    cap.release()
+                    raise RuntimeError(f"Cannot create chunk file: {chunk_path}")
+
+                chunk_paths.append(chunk_path)
+                current_chunk_frames = 0
+                logger.info(f"Creating chunk {chunk_idx + 1}/{num_chunks}: {chunk_path}")
+
+            writer.write(frame)
+            current_chunk_frames += 1
+
+        # Release the last writer
+        if writer is not None:
+            writer.release()
+            logger.info(f"✓ Chunk {chunk_idx + 1} created successfully")
+
+        cap.release()
         logger.info(f"✓ All {len(chunk_paths)} chunks created successfully")
         return chunk_paths
-    
+
     def _get_video_duration(self, video_path: str) -> float:
-        """Get video duration using FFprobe"""
-        cmd = [
-            'ffprobe',
-            '-v', 'error',
-            '-show_entries', 'format=duration',
-            '-of', 'default=noprint_wrappers=1:nokey=1:nokey=1',
-            video_path
-        ]
-        
-        try:
-            result = subprocess.run(cmd, 
-                                  capture_output=True, 
-                                  text=True,
-                                  timeout=30)
-            if result.returncode == 0:
-                return float(result.stdout.strip())
-        except (subprocess.TimeoutExpired, FileNotFoundError, ValueError):
-            pass
-        
-        # Fallback: use OpenCV
-        import cv2
+        """Get video duration using OpenCV"""
         cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            raise RuntimeError(f"Cannot open video: {video_path}")
+
         frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         fps = cap.get(cv2.CAP_PROP_FPS)
         cap.release()
-        
+
         if fps > 0:
             return frame_count / fps
-        
+
         raise RuntimeError(f"Cannot determine video duration for {video_path}")
 
 
@@ -342,7 +319,6 @@ def chunk_and_process_video(video_path: str,
             logger.info(f"\nProcessing chunk {i+1}/{len(chunk_paths)}: {chunk_path}")
             
             if processor:
-                import cv2
                 frames = []
                 cap = cv2.VideoCapture(chunk_path)
                 while True:

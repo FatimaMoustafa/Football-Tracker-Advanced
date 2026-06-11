@@ -1,0 +1,755 @@
+{
+  "match_id": "match_008",
+  "total_recommendations": 83,
+  "player_recommendations": [
+    {
+      "player_id": 1,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 35.039,
+      "message": "Player 1 reached 35.04 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 2,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.677,
+      "message": "Player 2 reached 44.68 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 2,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 2 had no ball involvement despite covering 106.3m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 3,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.339,
+      "message": "Player 3 reached 43.34 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 4,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.838,
+      "message": "Player 4 reached 43.84 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 5,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 8.02,
+      "message": "Player 5 covered only 8.0m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 5,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.214,
+      "message": "Player 5 reached 43.21 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 6,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.224,
+      "message": "Player 6 reached 43.22 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 7,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 39.982,
+      "message": "Player 7 reached 39.98 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 7,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 7 had no ball involvement despite covering 22.9m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 8,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.847,
+      "message": "Player 8 reached 43.85 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 8,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "high",
+      "metric": "turnover_ratio",
+      "value": 0.5,
+      "message": "Player 8 lost possession in 1 of 2 involvements. Focus on decision-making under pressure."
+    },
+    {
+      "player_id": 9,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 41.59,
+      "message": "Player 9 reached 41.59 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 9,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 9 had no ball involvement despite covering 78.8m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 10,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 42.074,
+      "message": "Player 10 reached 42.07 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 10,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 10 had no ball involvement despite covering 33.6m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 11,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 1.28,
+      "message": "Player 11 covered only 1.3m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 11,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.626,
+      "message": "Player 11 reached 44.63 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 12,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 4.58,
+      "message": "Player 12 covered only 4.6m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 12,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 37.66,
+      "message": "Player 12 reached 37.66 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 13,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.328,
+      "message": "Player 13 reached 43.33 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 13,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 13 had no ball involvement despite covering 58.2m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 14,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 42.578,
+      "message": "Player 14 reached 42.58 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 14,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 14 had no ball involvement despite covering 88.5m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 15,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.0,
+      "message": "Player 15 covered only 0.0m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 17,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.22,
+      "message": "Player 17 covered only 0.2m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 17,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 19.071,
+      "message": "Player 17 reached 19.07 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 19,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.671,
+      "message": "Player 19 reached 44.67 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 19,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 19 had no ball involvement despite covering 45.9m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 20,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 39.865,
+      "message": "Player 20 reached 39.87 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 20,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 20 had no ball involvement despite covering 57.6m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 22,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.045,
+      "message": "Player 22 reached 44.05 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 22,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 22 had no ball involvement despite covering 77.8m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 25,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 40.211,
+      "message": "Player 25 reached 40.21 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 25,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 25 had no ball involvement despite covering 27.3m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 30,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 38.365,
+      "message": "Player 30 reached 38.37 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 30,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 30 had no ball involvement despite covering 36.7m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 56,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 43.057,
+      "message": "Player 56 reached 43.06 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 56,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 56 had no ball involvement despite covering 61.2m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 70,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.0,
+      "message": "Player 70 covered only 0.0m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 159,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 7.04,
+      "message": "Player 159 covered only 7.0m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 159,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 38.186,
+      "message": "Player 159 reached 38.19 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 159,
+      "team_id": 2,
+      "category": "tactical",
+      "severity": "high",
+      "metric": "turnover_ratio",
+      "value": 0.5,
+      "message": "Player 159 lost possession in 1 of 2 involvements. Focus on decision-making under pressure."
+    },
+    {
+      "player_id": 191,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.271,
+      "message": "Player 191 reached 44.27 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 191,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 191 had no ball involvement despite covering 26.7m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 196,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.0,
+      "message": "Player 196 covered only 0.0m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 199,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 1.72,
+      "message": "Player 199 covered only 1.7m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 199,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.671,
+      "message": "Player 199 reached 44.67 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 207,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 2.99,
+      "message": "Player 207 covered only 3.0m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 207,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 24.426,
+      "message": "Player 207 reached 24.43 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 211,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 4.18,
+      "message": "Player 211 covered only 4.2m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 211,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 31.837,
+      "message": "Player 211 reached 31.84 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 230,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.0,
+      "message": "Player 230 covered only 0.0m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 243,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 40.625,
+      "message": "Player 243 reached 40.62 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 243,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "high",
+      "metric": "turnover_ratio",
+      "value": 0.5,
+      "message": "Player 243 lost possession in 1 of 2 involvements. Focus on decision-making under pressure."
+    },
+    {
+      "player_id": 244,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.0,
+      "message": "Player 244 reached 44.00 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 244,
+      "team_id": 1,
+      "category": "tactical",
+      "severity": "medium",
+      "metric": "ball_involvement",
+      "value": 0,
+      "message": "Player 244 had no ball involvement despite covering 31.6m. Review movement and positioning patterns."
+    },
+    {
+      "player_id": 246,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 6.58,
+      "message": "Player 246 covered only 6.6m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 246,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 39.661,
+      "message": "Player 246 reached 39.66 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 293,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 2.62,
+      "message": "Player 293 covered only 2.6m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 293,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 44.891,
+      "message": "Player 293 reached 44.89 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 297,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 1.59,
+      "message": "Player 297 covered only 1.6m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 297,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 32.93,
+      "message": "Player 297 reached 32.93 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 311,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 2.92,
+      "message": "Player 311 covered only 2.9m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 311,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 39.394,
+      "message": "Player 311 reached 39.39 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 314,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 2.23,
+      "message": "Player 314 covered only 2.2m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 314,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 40.478,
+      "message": "Player 314 reached 40.48 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 336,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.91,
+      "message": "Player 336 covered only 0.9m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 336,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 41.399,
+      "message": "Player 336 reached 41.40 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 349,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 11.25,
+      "message": "Player 349 covered only 11.2m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 349,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 41.304,
+      "message": "Player 349 reached 41.30 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 369,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 2.08,
+      "message": "Player 369 covered only 2.1m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 369,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 35.097,
+      "message": "Player 369 reached 35.10 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 381,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 1.72,
+      "message": "Player 381 covered only 1.7m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 381,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 26.23,
+      "message": "Player 381 reached 26.23 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 383,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.87,
+      "message": "Player 383 covered only 0.9m, well below the team average of 19.6m. Review workload or positioning."
+    },
+    {
+      "player_id": 383,
+      "team_id": 2,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 30.472,
+      "message": "Player 383 reached 30.47 m/s. Leverage in transitions and counter-attacks."
+    },
+    {
+      "player_id": 386,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "high",
+      "metric": "distance_covered_m",
+      "value": 0.92,
+      "message": "Player 386 covered only 0.9m, well below the team average of 34.7m. Review workload or positioning."
+    },
+    {
+      "player_id": 386,
+      "team_id": 1,
+      "category": "physical",
+      "severity": "positive",
+      "metric": "max_speed_mps",
+      "value": 26.916,
+      "message": "Player 386 reached 26.92 m/s. Leverage in transitions and counter-attacks."
+    }
+  ],
+  "team_recommendations": [
+    {
+      "team_id": 1,
+      "team_name": "Team A",
+      "category": "physical",
+      "severity": "medium",
+      "metric": "avg_distance_m",
+      "value": 34.74,
+      "message": "Team A averaged only 34.7m per player. Consider fitness conditioning or a higher defensive line."
+    },
+    {
+      "team_id": 2,
+      "team_name": "Team B",
+      "category": "tactical",
+      "severity": "high",
+      "metric": "possession_percent",
+      "value": 30.4,
+      "message": "Team B had only 30.4% possession. Work on ball retention and pressing triggers."
+    },
+    {
+      "team_id": 2,
+      "team_name": "Team B",
+      "category": "tactical",
+      "severity": "high",
+      "metric": "team_turnover_ratio",
+      "value": 0.5,
+      "message": "Team B lost the ball on 2 of 4 possessions. Prioritise short passing sequences to reduce risk."
+    },
+    {
+      "team_id": 2,
+      "team_name": "Team B",
+      "category": "physical",
+      "severity": "medium",
+      "metric": "avg_distance_m",
+      "value": 19.63,
+      "message": "Team B averaged only 19.6m per player. Consider fitness conditioning or a higher defensive line."
+    }
+  ]
+}

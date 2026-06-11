@@ -71,11 +71,8 @@ def heatmap_by_team(players, team, min_appearances=30):
 
         x_coords, y_coords = normalize_coords(player["positions"])
 
-        if len(x_coords) > 10 and len(y_coords) > 10 and len(np.unique(x_coords)) > 1 and len(np.unique(y_coords)) > 1:
-            try:
-                pitch.kdeplot(x_coords, y_coords, ax=ax, fill=True, cmap=custom_cmap, levels=50, zorder=1)
-            except ValueError:
-                ax.scatter(x_coords, y_coords, color='red', s=5, zorder=1)
+        if len(x_coords) > 10 and len(y_coords) > 10:
+            pitch.kdeplot(x_coords, y_coords, ax=ax, fill=True, cmap=custom_cmap, levels=50, zorder=1)
         elif x_coords and y_coords:
             ax.scatter(x_coords, y_coords, color='red', s=5, zorder=1)
         else:
@@ -121,11 +118,8 @@ def heatmap_for_team(players, team, min_appearances=50):
     fig, ax = pitch.draw(figsize=(6, 4))
     fig.set_facecolor('black')
 
-    if len(x_coords) > 10 and len(y_coords) > 10 and len(np.unique(x_coords)) > 1 and len(np.unique(y_coords)) > 1:
-        try:
-            pitch.kdeplot(x_coords, y_coords, ax=ax, fill=True, cmap=custom_cmap, levels=50, zorder=1)
-        except ValueError:
-            ax.scatter(x_coords, y_coords, color='red', s=5, zorder=1)
+    if len(x_coords) > 10 and len(y_coords) > 10:
+        pitch.kdeplot(x_coords, y_coords, ax=ax, fill=True, cmap=custom_cmap, levels=50, zorder=1)
     else:
         ax.scatter(x_coords, y_coords, color='red', s=5, zorder=1)
 

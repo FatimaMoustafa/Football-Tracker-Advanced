@@ -157,11 +157,12 @@ def build_players(tracks, passes, turnovers):
         for frame_num, frame_data in enumerate(tracks['players']):
             if track_id in frame_data:
                 pos = frame_data[track_id].get('position_transformed')
+                if pos is None:
+                    pos = frame_data[track_id].get('position_adjusted')
                 if pos is not None and isinstance(pos, (list, tuple)) and len(pos) == 2:
                     x, y = pos[0], pos[1]
-                    # Sanity check: must be within pitch bounds (105m x 68m)
-                    if 0 <= x <= 105 and 0 <= y <= 68:
-                        positions.append({"frame": frame_num, "x": x, "y": y})
+                    if x is not None and y is not None:
+                        positions.append({"frame": frame_num, "x": float(x), "y": float(y)})
 
         avg_x = round(np.mean([p["x"] for p in positions]), 2) if positions else 0
         avg_y = round(np.mean([p["y"] for p in positions]), 2) if positions else 0
